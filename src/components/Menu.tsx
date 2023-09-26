@@ -22,25 +22,34 @@ function Menu() {
     return (
         <ChakraProvider theme={customTheme}>
             <Flex
-                bg="blue.500"
-                color="white"
+                bg="white"
+                color="navy.700"
                 p={4}
                 alignItems="center"
+                flexDirection={"column"}
                 justifyContent="left"
+                height="100%"
+                width="15%"
                 gap={20}
+                position={"fixed"}
             >
-                <Heading ml={5} size="lg">APYs</Heading>
-                <Box>
-                    <Link mr={10} _hover={{ textDecoration: "none" }}>
+                <Heading size="lg">APYs</Heading>
+                <Flex
+                    alignItems="center"
+                    flexDirection={"column"}
+                    justifyContent="center"
+                    gap="10px"
+                >
+                    <Link _hover={{ textDecoration: "none" }}>
                         MySwap
                     </Link>
-                    <Link mr={10} _hover={{ textDecoration: "none" }}>
+                    <Link _hover={{ textDecoration: "none" }}>
                         JediSwap
                     </Link>
-                    <Link mr={10} _hover={{ textDecoration: "none" }}>
+                    <Link _hover={{ textDecoration: "none" }}>
                         Ekubo
                     </Link>
-                </Box>
+                </Flex>
             </Flex>
         </ChakraProvider>
     );

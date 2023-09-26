@@ -8,6 +8,7 @@ import {
   Code,
   Grid,
   theme,
+  Flex,
 } from "@chakra-ui/react"
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
 import { Logo } from "./Logo"
@@ -17,7 +18,7 @@ import Menu from "./components/Menu"; // Adjust the path to the Menu component b
 export const App = () => (
   <ChakraProvider theme={theme}>
     <Menu />
-    <Box textAlign="center" fontSize="xl">
+    <Box textAlign="center" fontSize="xl" bg="gray.300">
       <Grid minH="100vh" p={3}>
         <ColorModeSwitcher justifySelf="flex-end" />
         <VStack spacing={8}>
