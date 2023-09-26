@@ -1,9 +1,7 @@
 #[macro_use]
 extern crate rocket;
 
-use rocket::fs::NamedFile;
 use rocket::Request;
-use std::path::{Path, PathBuf};
 
 use rocket_db_pools::sqlx::{self, Row};
 use rocket_db_pools::{Connection, Database};
@@ -18,18 +16,30 @@ fn index() -> &'static str {
 }
 
 #[get("/myswap", format = "json")]
-fn myswap() -> &'static str {
-    "Hello, world!"
+async fn myswap(mut db: Connection<APYs>) -> Option<String> {
+    sqlx::query("SELECT * FROM myswap")
+        .fetch_one(&mut *db)
+        .await
+        .and_then(|r| Ok(r.try_get(0)?))
+        .ok()
 }
 
 #[get("/jediswap", format = "json")]
-fn jediswap() -> &'static str {
-    "Hello, world!"
+async fn jediswap(mut db: Connection<APYs>) -> Option<String> {
+    sqlx::query("SELECT * FROM myswap")
+        .fetch_one(&mut *db)
+        .await
+        .and_then(|r| Ok(r.try_get(0)?))
+        .ok()
 }
 
 #[get("/ekubo", format = "json")]
-fn ekubo() -> &'static str {
-    "Hello, world!"
+async fn ekubo(mut db: Connection<APYs>) -> Option<String> {
+    sqlx::query("SELECT * FROM myswap")
+        .fetch_one(&mut *db)
+        .await
+        .and_then(|r| Ok(r.try_get(0)?))
+        .ok()
 }
 
 #[catch(404)]
