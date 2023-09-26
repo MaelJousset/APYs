@@ -26,20 +26,20 @@ function Menu() {
                 color="white"
                 p={4}
                 alignItems="center"
-                justifyContent="space-between"
+                justifyContent="left"
+                gap={20}
             >
-                <Heading size="lg">My Website</Heading>
+                <Heading ml={5} size="lg">APYs</Heading>
                 <Box>
-                    <Link mr={4} _hover={{ textDecoration: "none" }}>
-                        Home
+                    <Link mr={10} _hover={{ textDecoration: "none" }}>
+                        MySwap
                     </Link>
-                    <Link mr={4} _hover={{ textDecoration: "none" }}>
-                        About
+                    <Link mr={10} _hover={{ textDecoration: "none" }}>
+                        JediSwap
                     </Link>
-                    <Link mr={4} _hover={{ textDecoration: "none" }}>
-                        Services
+                    <Link mr={10} _hover={{ textDecoration: "none" }}>
+                        Ekubo
                     </Link>
-                    <Link _hover={{ textDecoration: "none" }}>Contact</Link>
                 </Box>
             </Flex>
         </ChakraProvider>
