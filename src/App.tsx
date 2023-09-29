@@ -5,6 +5,11 @@ import {
 } from "@chakra-ui/react"
 
 import Sidebar from "./components/Sidebar/Sidebar"
+import DashboardPage from "./pages/DashboardPage";
+import MySwapPage from "./pages/MySwapPage";
+import JediSwapPage from "./pages/JediSwapPage";
+import EkuboPage from "./pages/EkuboSwap";
+import MyWalletPage from "./pages/MyWalletPage";
 
 
 function App() {
@@ -13,11 +18,11 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Sidebar />
-      {/*{activePage === 'dashboard_page' && <DashboardPage />}
+      {activePage === 'dashboard_page' && <DashboardPage />}
       {activePage === 'myswap_page' && <MySwapPage />}
-      {activePage === 'jediswap_page' && <JediPage />}
+      {activePage === 'jediswap_page' && <JediSwapPage />}
       {activePage === 'ekubo_page' && <EkuboPage />}
-  {activePage === 'mywallet_page' && <MyWalletPage />}*/}
+      {activePage === 'mywallet_page' && <MyWalletPage />}
     </ChakraProvider>
   )
 }
