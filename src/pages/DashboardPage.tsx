@@ -2,7 +2,8 @@ import React, { useState } from 'react'
 import {
     Flex,
     Text,
-    Heading
+    Heading,
+    Box,
 } from '@chakra-ui/react'
 
 import PageHeader from '../components/Header/PageHeader'
@@ -11,9 +12,11 @@ import PageHeader from '../components/Header/PageHeader'
 
 export default function DashboardPage() {
     return (
-        <Flex
+        <Box
+            width={"100%"}
+            height={"100%"}
         >
-            <PageHeader></PageHeader>
-        </Flex>
+            <PageHeader page_name={"Dashboard"}></PageHeader>
+        </Box>
     )
 }

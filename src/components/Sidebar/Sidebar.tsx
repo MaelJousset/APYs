@@ -14,14 +14,18 @@ import NavItem from './NavItem'
 import NavImageItem from './NavImageItem'
 import Title from './Title'
 
+interface SidebarProps {
+    setCurrentPage: (page: string) => void;
+}
 
-export default function Sidebar() {
+export default function Sidebar({ setCurrentPage }: SidebarProps) {
     const [navSize, changeNavSize] = useState("large")
 
     const [activePage, setActivePage] = useState('dashboard_page');
 
     const handleButtonClick = (pageName: string) => {
         setActivePage(pageName);
+        setCurrentPage(pageName);
     };
 
     return (

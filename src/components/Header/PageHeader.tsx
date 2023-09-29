@@ -7,15 +7,19 @@ import WalletButton from "./WalletButton";
 
 import {
     Box,
+    Flex,
 } from "@chakra-ui/react"
 
 
+interface PageHeaderProps {
+    page_name: string;
+}
 
-
-function PageHeader() {
+const PageHeader: React.FC<PageHeaderProps> = ({ page_name }) => {
     return (
-        <Box>
-        </Box>
+        <Flex>
+            <PageLink page_name={page_name}></PageLink>
+        </Flex>
     )
 }
 
