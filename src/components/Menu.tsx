@@ -7,8 +7,11 @@ import {
     VStack,
     Link,
     extendTheme,
+    Divider,
     CSSReset,
 } from "@chakra-ui/react";
+
+import Title from "./Title";
 
 // Chakra UI theme customization (optional)
 const customTheme = extendTheme({
@@ -29,11 +32,19 @@ function Menu() {
                 flexDirection={"column"}
                 justifyContent="left"
                 height="100%"
-                width="15%"
+                width="18%"
                 gap={20}
                 position={"fixed"}
             >
-                <Heading size="lg">APYs</Heading>
+
+                <Title logo="APY_logo.png" title="APY DASHBOARD" />
+
+                <Divider
+                    bg="gray.800"
+                    orientation='horizontal'
+                    w="80%"
+                />
+
                 <Flex
                     alignItems="center"
                     flexDirection={"column"}
