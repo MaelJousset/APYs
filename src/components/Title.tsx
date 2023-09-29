@@ -30,7 +30,7 @@ const Title: React.FC<TitleProps> = ({ logo, title }) => {
             <Flex
                 bg="white"
                 color="navy.700"
-                p={4}
+                /*p={4}*/
                 alignItems="center"
                 flexDirection={"row"}
                 justifyContent="left"

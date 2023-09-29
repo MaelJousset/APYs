@@ -9,9 +9,15 @@ import {
     extendTheme,
     Divider,
     CSSReset,
+    Tab,
 } from "@chakra-ui/react";
 
+import { IoIosHome } from 'react-icons/io'
+import { FaWallet } from 'react-icons/fa'
+
+
 import Title from "./Title";
+import CustomTab, { CustomIconTab } from "./CustomTab";
 
 // Chakra UI theme customization (optional)
 const customTheme = extendTheme({
@@ -27,17 +33,15 @@ function Menu() {
             <Flex
                 bg="white"
                 color="navy.700"
-                p={4}
                 alignItems="center"
                 flexDirection={"column"}
-                justifyContent="left"
+                justifyContent="space-evenly"
                 height="100%"
                 width="18%"
-                gap={20}
+                gap={3}
                 position={"fixed"}
             >
-
-                <Title logo="APY_logo.png" title="APY DASHBOARD" />
+                <Title logo="/assets/APY_logo.png" title="APY DASHBOARD" />
 
                 <Divider
                     bg="gray.800"
@@ -48,19 +52,18 @@ function Menu() {
                 <Flex
                     alignItems="center"
                     flexDirection={"column"}
-                    justifyContent="center"
-                    gap="10px"
+                    justifyContent="space-around"
+                    height="max-content"
+                    gap={2}
                 >
-                    <Link _hover={{ textDecoration: "none" }}>
-                        MySwap
-                    </Link>
-                    <Link _hover={{ textDecoration: "none" }}>
-                        JediSwap
-                    </Link>
-                    <Link _hover={{ textDecoration: "none" }}>
-                        Ekubo
-                    </Link>
+                    <CustomIconTab icon={IoIosHome} name="Dashboard"></CustomIconTab>
+                    <CustomTab logo="/assets/myswap.png" name="MySwap"></CustomTab>
+                    <CustomTab logo="/assets/jediswap.jpg" name="JediSwap"></CustomTab>
+                    <CustomTab logo="/assets/ekubo.png" name="Ekubo"></CustomTab>
                 </Flex>
+
+                <CustomIconTab icon={FaWallet} name="My Wallet"></CustomIconTab>
+
             </Flex>
         </ChakraProvider>
     );
