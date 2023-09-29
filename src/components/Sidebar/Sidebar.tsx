@@ -14,8 +14,16 @@ import NavItem from './NavItem'
 import NavImageItem from './NavImageItem'
 import Title from './Title'
 
+
 export default function Sidebar() {
     const [navSize, changeNavSize] = useState("large")
+
+    const [activePage, setActivePage] = useState('dashboard_page');
+
+    const handleButtonClick = (pageName: string) => {
+        setActivePage(pageName);
+    };
+
     return (
         <Flex
             pos="sticky"
@@ -53,11 +61,21 @@ export default function Sidebar() {
                     as="nav"
                 >
                     <Divider w="80%" />
-                    <NavItem navSize={navSize} icon={IoIosHome} title="Dashboard" active={true} />
-                    <NavImageItem navSize={navSize} image={"/assets/myswap.png"} title="MySwap" active={false} />
-                    <NavImageItem navSize={navSize} image={"/assets/jediswap.jpg"} title="JediSwap" active={false} />
-                    <NavImageItem navSize={navSize} image={"/assets/ekubo.png"} title="Ekubo" active={false} />
-                    <NavItem navSize={navSize} icon={FaWallet} title="My Wallet" active={false} />
+                    <NavItem navSize={navSize} icon={IoIosHome} title="Dashboard" active={activePage === 'dashboard_page'}
+                        onClick={() => handleButtonClick('dashboard_page')}
+                    />
+                    <NavImageItem navSize={navSize} image={"/assets/myswap.png"} title="MySwap" active={activePage === 'myswap_page'}
+                        onClick={() => handleButtonClick('myswap_page')}
+                    />
+                    <NavImageItem navSize={navSize} image={"/assets/jediswap.jpg"} title="JediSwap" active={activePage === 'jediswap_page'}
+                        onClick={() => handleButtonClick('jediswap_page')}
+                    />
+                    <NavImageItem navSize={navSize} image={"/assets/ekubo.png"} title="Ekubo" active={activePage === 'ekubo_page'}
+                        onClick={() => handleButtonClick('ekubo_page')}
+                    />
+                    <NavItem navSize={navSize} icon={FaWallet} title="My Wallet" active={activePage === 'mywallet_page'}
+                        onClick={() => handleButtonClick('mywallet_page')}
+                    />
                 </Flex>
             </Flex>
 

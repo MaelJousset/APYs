@@ -15,9 +15,10 @@ interface NavImageItemProps {
     title: string;
     active: boolean;
     navSize: string;
+    onClick?: () => void;
 }
 
-const NavImageItem: React.FC<NavImageItemProps> = ({ image, title, active, navSize }) => {
+const NavImageItem: React.FC<NavImageItemProps> = ({ image, title, active, navSize, onClick }) => {
     return (
         <Flex
             mt={30}
@@ -32,6 +33,7 @@ const NavImageItem: React.FC<NavImageItemProps> = ({ image, title, active, navSi
                     borderRadius={8}
                     _hover={{ textDecor: 'none', backgroundColor: "#AEC8CA" }}
                     w={navSize === "large" ? "100%" : ""}
+                    onClick={onClick}
                 >
                     <MenuButton w="100%">
                         <Flex
