@@ -7,7 +7,8 @@ import {
     Menu,
     MenuButton,
     MenuList,
-    Box
+    Box,
+    Center
 } from '@chakra-ui/react'
 import { IconType } from 'react-icons';
 
@@ -29,10 +30,10 @@ const NavItem: React.FC<NavItemProps> = ({ icon, title, active, navSize, onClick
         >
             <Menu placement="right">
                 <Link
-                    bgColor={active ? "#AEC8CA" : ""}
+                    bgColor={active ? "white" : ""}
                     p={3}
-                    borderRadius={8}
-                    _hover={{ textDecor: 'none', backgroundColor: "#AEC8CA" }}
+                    borderRadius={16}
+                    _hover={{ textDecor: 'none', backgroundColor: "white" }}
                     w={navSize === "large" ? "100%" : ""}
                     onClick={onClick}
                 >
@@ -44,30 +45,28 @@ const NavItem: React.FC<NavItemProps> = ({ icon, title, active, navSize, onClick
                                 display="flex"
                                 alignItems="center"  // Center vertically
                                 justifyContent="center" // Center horizontally
-                                bg={"teal.200"}
+                                bg={active ? "teal.200" : "white"}
                                 borderRadius={"xl"}
                                 width={8}
                                 height={8}
-                                color={active ? "#82AAAD" : "gray.500"}
                             >
                                 <Icon
                                     as={icon}
-                                    color="white"
+                                    color={active ? "white" : "teal.200"}
                                     w={4} h={4}
                                 />
                             </Box>
-                            <Text ml={5} display={navSize === "small" ? "none" : "flex"}>{title}</Text>
+                            <Text
+                                ml={5}
+                                display={navSize === "small" ? "none" : "flex"}
+                                color={active ? "blue.900" : "gray.400"}
+                                fontWeight={active ? "bold" : "medium"}
+                            >
+                                {title}
+                            </Text>
                         </Flex>
                     </MenuButton>
                 </Link>
-                <MenuList
-                    py={0}
-                    border="none"
-                    w={200}
-                    h={200}
-                    ml={5}
-                >
-                </MenuList>
             </Menu>
         </Flex>
     )

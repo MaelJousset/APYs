@@ -16,7 +16,6 @@ interface TitleProps {
 const Title: React.FC<TitleProps> = ({ logo, title, onClick, navSize }) => {
     return (
         <Flex
-            bg="white"
             color="blue.900"
             alignItems={"center"}
             flexDirection={"row"}

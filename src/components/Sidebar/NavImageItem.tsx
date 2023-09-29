@@ -7,6 +7,7 @@ import {
     MenuButton,
     MenuList,
     Image,
+    Box,
 } from '@chakra-ui/react'
 
 
@@ -28,35 +29,47 @@ const NavImageItem: React.FC<NavImageItemProps> = ({ image, title, active, navSi
         >
             <Menu placement="right">
                 <Link
-                    bgColor={active ? "#AEC8CA" : ""}
+                    bgColor={active ? "white" : ""}
                     p={3}
-                    borderRadius={8}
-                    _hover={{ textDecor: 'none', backgroundColor: "#AEC8CA" }}
+                    borderRadius={16}
+                    _hover={{ textDecor: 'none', backgroundColor: "white" }}
                     w={navSize === "large" ? "100%" : ""}
                     onClick={onClick}
+                    display="flex" // Add this property to make Link a flex container
+                    alignItems="center" // Align items vertically within the Link
                 >
                     <MenuButton w="100%">
                         <Flex
                             alignItems={"center"}
                         >
-                            <Image
-                                src={image}
-                                borderRadius={"lg"}
+                            <Box
+                                display="flex"
+                                alignItems="center"  // Center vertically
+                                justifyContent="center" // Center horizontally
+                                borderRadius={"xl"}
                                 width={8}
                                 height={8}
-                            />
-                            <Text ml={5} display={navSize === "small" ? "none" : "flex"}>{title}</Text>
+                            >
+                                <Image
+                                    src={image}
+                                    borderRadius={"lg"}
+                                    width={8}
+                                    height={8}
+                                    objectFit="cover"
+                                />
+                            </Box>
+                            <Text
+                                ml={5}
+                                display={navSize === "small" ? "none" : "flex"}
+                                color={active ? "blue.900" : "gray.400"}
+                                fontWeight={active ? "bold" : "medium"}
+                                lineHeight={"12px"}
+                            >
+                                {title}
+                            </Text>
                         </Flex>
                     </MenuButton>
                 </Link>
-                <MenuList
-                    py={0}
-                    border="none"
-                    w={200}
-                    h={200}
-                    ml={5}
-                >
-                </MenuList>
             </Menu>
         </Flex>
     )

@@ -3,15 +3,19 @@
 
 import {
     Button,
+    Stack,
 } from "@chakra-ui/react"
 
-
+import { FaWallet } from 'react-icons/fa'
 
 
 function WalletButton() {
     return (
-        <Button>
-        </Button>
+        <Stack direction='row' spacing={4}>
+            <Button leftIcon={<FaWallet />} colorScheme='teal' variant='solid'>
+                Connect Wallet
+            </Button>
+        </Stack>
     )
 }
 

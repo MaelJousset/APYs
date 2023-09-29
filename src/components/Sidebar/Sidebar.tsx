@@ -33,10 +33,11 @@ export default function Sidebar({ setCurrentPage }: SidebarProps) {
             pos="sticky"
             h="100vh"
             boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
-            borderRadius={navSize === "small" ? "15px" : "30px"}
+            //borderRadius={navSize === "small" ? "15px" : "30px"}
             w={navSize === "small" ? "75px" : "280px"}
             flexDir="column"
             justifyContent="space-between"
+            bg={"gray.100"}
         >
             <Flex
                 p="7%"

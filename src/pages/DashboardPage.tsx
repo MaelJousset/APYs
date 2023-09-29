@@ -12,11 +12,14 @@ import PageHeader from '../components/Header/PageHeader'
 
 export default function DashboardPage() {
     return (
-        <Box
+        <Flex
             width={"100%"}
             height={"100%"}
+            flexDirection={"column"}
+            alignItems={"center"}
+            justifyContent={"space-between"}
         >
-            <PageHeader page_name={"Dashboard"}></PageHeader>
-        </Box>
+            <PageHeader page_name={"Dashboard"} />
+        </Flex>
     )
 }

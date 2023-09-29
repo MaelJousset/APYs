@@ -16,9 +16,30 @@ interface PageHeaderProps {
 }
 
 const PageHeader: React.FC<PageHeaderProps> = ({ page_name }) => {
+
+    const handleSearch = (query: string) => {
+        // Implement your search logic here with the 'query' parameter.
+        console.log(`Searching for: ${query}`);
+    };
+
     return (
-        <Flex>
+        <Flex
+            width={"100%"}
+            height={"100%"}
+            flexDirection={"row"}
+            alignItems={"center"}
+            justifyContent={"space-between"}
+            paddingLeft={12}
+            paddingRight={10}
+            paddingTop={8}
+        >
             <PageLink page_name={page_name}></PageLink>
+            <Flex
+                gap={5}
+            >
+                <SearchBar onSearch={handleSearch} />
+                <WalletButton />
+            </Flex>
         </Flex>
     )
 }
