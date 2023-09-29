@@ -14,18 +14,17 @@ import { IconType } from 'react-icons';
 interface NavItemProps {
     icon: IconType; // Assuming 'logo' is a URL to an image
     title: string;
-    description: string;
     active: boolean;
     navSize: string;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ icon, title, description, active, navSize }) => {
+const NavItem: React.FC<NavItemProps> = ({ icon, title, active, navSize }) => {
     return (
         <Flex
             mt={30}
             flexDir="column"
             w="100%"
-            alignItems={navSize == "small" ? "center" : "flex-start"}
+            alignItems={navSize === "small" ? "center" : "flex-start"}
         >
             <Menu placement="right">
                 <Link
@@ -33,7 +32,7 @@ const NavItem: React.FC<NavItemProps> = ({ icon, title, description, active, nav
                     p={3}
                     borderRadius={8}
                     _hover={{ textDecor: 'none', backgroundColor: "#AEC8CA" }}
-                    w={navSize == "large" ? "100%" : ""}
+                    w={navSize === "large" ? "100%" : ""}
                 >
                     <MenuButton w="100%">
                         <Flex
@@ -55,7 +54,7 @@ const NavItem: React.FC<NavItemProps> = ({ icon, title, description, active, nav
                                     w={4} h={4}
                                 />
                             </Box>
-                            <Text ml={5} display={navSize == "small" ? "none" : "flex"}>{title}</Text>
+                            <Text ml={5} display={navSize === "small" ? "none" : "flex"}>{title}</Text>
                         </Flex>
                     </MenuButton>
                 </Link>

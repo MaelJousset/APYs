@@ -1,37 +1,41 @@
 import React from "react";
 import {
-    ChakraProvider,
     Flex,
     Heading,
     Image,
-    extendTheme,
 } from "@chakra-ui/react";
 
 
 interface TitleProps {
     logo: string; // Assuming 'logo' is a URL to an image
     title: string;
+    onClick?: () => void;
+    navSize: string;
 }
 
-const Title: React.FC<TitleProps> = ({ logo, title }) => {
+const Title: React.FC<TitleProps> = ({ logo, title, onClick, navSize }) => {
     return (
         <Flex
             bg="white"
             color="blue.900"
-            alignItems="center"
+            alignItems={"center"}
             flexDirection={"row"}
-            justifyContent="flex-start"
+            justifyContent={navSize === "small" ? "center" : "flex-start"}
+            paddingTop={navSize === "small" ? "22%" : ""}
             gap={3}
-            position={"fixed"}
+            w="100%"
+
         >
             <Image
                 src={logo}
                 borderRadius={"lg"}
                 width={"10"}
+                onClick={onClick}
             />
             <Heading
                 size="md"
                 fontFamily={"Plus Jakarta Sans, sans-serif"}
+                display={navSize === "small" ? "none" : "flex"}
             >
                 {title}
             </Heading>

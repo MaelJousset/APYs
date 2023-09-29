@@ -2,20 +2,11 @@ import React, { useState } from 'react'
 import {
     Flex,
     Text,
-    IconButton,
     Divider,
     Avatar,
     Heading
 } from '@chakra-ui/react'
-import {
-    FiMenu,
-    FiHome,
-    FiCalendar,
-    FiUser,
-    FiDollarSign,
-    FiBriefcase,
-    FiSettings
-} from 'react-icons/fi'
+
 import { IoIosHome } from 'react-icons/io'
 import { FaWallet } from 'react-icons/fa'
 
@@ -42,21 +33,31 @@ export default function Sidebar() {
                 alignItems={navSize === "small" ? "center" : "flex-start"}
                 as="nav"
             >
-                <Title logo="/assets/APY_logo.png" title="APY DASHBOARD" />
+                <Title
+                    logo="/assets/APY_logo.png"
+                    title="APY DASHBOARD"
+                    onClick={() => {
+                        if (navSize === "small")
+                            changeNavSize("large")
+                        else
+                            changeNavSize("small")
+                    }}
+                    navSize={navSize}
+                />
                 <Flex
-                    paddingTop={"25%"}
+                    paddingTop={navSize === "small" ? "17%" : "5%"}
                     paddingLeft="5%"
                     flexDir="column"
                     w="100%"
                     alignItems={navSize === "small" ? "center" : "flex-start"}
                     as="nav"
                 >
-                    <Divider />
-                    <NavItem navSize={navSize} icon={IoIosHome} title="Dashboard" description="This is the description for the dashboard." active={false} />
-                    <NavImageItem navSize={navSize} image={"/assets/myswap.png"} title="MySwap" description="" active={true} />
-                    <NavImageItem navSize={navSize} image={"/assets/jediswap.jpg"} title="JediSwap" description="" active={false} />
-                    <NavImageItem navSize={navSize} image={"/assets/ekubo.png"} title="Ekubo" description="" active={false} />
-                    <NavItem navSize={navSize} icon={FaWallet} title="My Wallet" description="" active={false} />
+                    <Divider w="80%" />
+                    <NavItem navSize={navSize} icon={IoIosHome} title="Dashboard" active={true} />
+                    <NavImageItem navSize={navSize} image={"/assets/myswap.png"} title="MySwap" active={false} />
+                    <NavImageItem navSize={navSize} image={"/assets/jediswap.jpg"} title="JediSwap" active={false} />
+                    <NavImageItem navSize={navSize} image={"/assets/ekubo.png"} title="Ekubo" active={false} />
+                    <NavItem navSize={navSize} icon={FaWallet} title="My Wallet" active={false} />
                 </Flex>
             </Flex>
 
