@@ -12,12 +12,13 @@ import {
 } from "@chakra-ui/react"
 import { ColorModeSwitcher } from "./ColorModeSwitcher"
 import { Logo } from "./Logo"
-import Menu from "./components/Menu"; // Adjust the path to the Menu component based on your project structure.
+
+import Sidebar from "./components/Sidebar/Sidebar"
 
 
 export const App = () => (
   <ChakraProvider theme={theme}>
-    <Menu />
+    {/*<Menu />
     <Box textAlign="center" fontSize="xl" bg="gray.300">
       <Grid minH="100vh" p={3}>
         <ColorModeSwitcher justifySelf="flex-end" />
@@ -37,6 +38,8 @@ export const App = () => (
           </Link>
         </VStack>
       </Grid>
-    </Box>
+    </Box>*/}
+
+    <Sidebar />
   </ChakraProvider>
 )
