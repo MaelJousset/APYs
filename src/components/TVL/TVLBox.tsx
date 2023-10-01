@@ -18,18 +18,36 @@ interface TVLBoxProps {
 }
 const TVLBox: React.FC<TVLBoxProps> = ({ pool, values }) => {
     return (
-        <Box>
+        <Box
+            borderRadius={15}
+            paddingLeft={5}
+            paddingRight={5}
+            paddingBottom={5}
+            paddingTop={3}
+            w={"370px"}
+            bgColor={"gray.200"}
+        >
             <Flex
-                flexDir={"row"}
-                justifyContent={"space-between"}
-                alignItems={"flex-start"}
+                flexDir={"column"}
             >
-                <Text>{pool}</Text>
-                <TVLValue values={values} />
+                <Flex
+                    flexDir={"row"}
+                    justifyContent={"space-between"}
+                    width={"100%"}
+                >
+                    <Text
+                        fontFamily={"Plus Jakarta Sans, sans-serif"}
+                        fontSize={"18px"}
+                        color={"blue.700"}
+                    >
+                        {pool}
+                    </Text>
+                    <TVLValue values={values} />
+                </Flex>
+                <TVLChart
+                    chartData={values} pool={pool}
+                />
             </Flex>
-            <TVLChart
-                chartData={values} pool={pool}
-            />
 
         </Box>
     )

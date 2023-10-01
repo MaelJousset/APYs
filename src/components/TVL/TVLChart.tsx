@@ -11,7 +11,6 @@ import {
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import { faker } from '@faker-js/faker';
 
 ChartJS.register(
     CategoryScale,
@@ -47,8 +46,8 @@ const TVLChart: React.FC<TVLChartProps> = ({ chartData, pool }) => {
         datasets: [
             {
                 data: chartData.map((point) => point.y),
-                borderColor: 'rgb(255, 99, 132)',
-                backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                borderColor: '#2C5282',
+                backgroundColor: '#2C5282',
                 tension: 0.2,
             },
         ],
@@ -56,28 +55,26 @@ const TVLChart: React.FC<TVLChartProps> = ({ chartData, pool }) => {
 
 
     const options = {
+        elements: {
+            point: {
+                radius: 0
+            }
+        },
         responsive: true,
         plugins: {
             legend: {
                 display: false,
             },
             title: {
-                display: true,
-                text: pool,
+                display: false,
             },
         },
         scales: {
             x: {
-                ticks: {
-                    // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-                    maxTicksLimit: 3,
-                },
+                display: false,
             },
             y: {
-                ticks: {
-                    // For a category axis, the val is the index so the lookup via getLabelForValue is needed
-                    maxTicksLimit: 4,
-                },
+                display: false,
             },
         }
     };
