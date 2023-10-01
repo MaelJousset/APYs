@@ -6,6 +6,7 @@ import {
 } from "@chakra-ui/react"
 
 import TVLChart from "./TVLChart";
+import TVLValue from "./TVLValue";
 
 
 interface TVLBoxProps {
@@ -18,6 +19,14 @@ interface TVLBoxProps {
 const TVLBox: React.FC<TVLBoxProps> = ({ pool, values }) => {
     return (
         <Box>
+            <Flex
+                flexDir={"row"}
+                justifyContent={"space-between"}
+                alignItems={"flex-start"}
+            >
+                <Text>{pool}</Text>
+                <TVLValue values={values} />
+            </Flex>
             <TVLChart
                 chartData={values} pool={pool}
             />
