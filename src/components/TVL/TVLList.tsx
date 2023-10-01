@@ -16,7 +16,7 @@ function TVLList() {
                 values={[
                     { x: new Date('2023-09-01'), y: 100 },
                     { x: new Date('2023-09-02'), y: 150 },
-                    { x: new Date('2023-09-03'), y: 200 },
+                    { x: new Date('2023-09-03'), y: 100 },
                 ]}
             />
         </Flex>

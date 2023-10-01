@@ -39,7 +39,7 @@ const TVLChart: React.FC<TVLChartProps> = ({ chartData, pool }) => {
         const day = point.x.getDate().toString(); // Convert day to a string
         const month = months[point.x.getMonth()]; // Convert month to a string (adding 1 because months are 0-indexed)
 
-        return day + '-' + month;
+        return month + ' ' + day;
     });
 
     const data = {
@@ -49,9 +49,11 @@ const TVLChart: React.FC<TVLChartProps> = ({ chartData, pool }) => {
                 data: chartData.map((point) => point.y),
                 borderColor: 'rgb(255, 99, 132)',
                 backgroundColor: 'rgba(255, 99, 132, 0.5)',
+                tension: 0.2,
             },
         ],
     };
+
 
     const options = {
         responsive: true,
@@ -64,6 +66,20 @@ const TVLChart: React.FC<TVLChartProps> = ({ chartData, pool }) => {
                 text: pool,
             },
         },
+        scales: {
+            x: {
+                ticks: {
+                    // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+                    maxTicksLimit: 3,
+                },
+            },
+            y: {
+                ticks: {
+                    // For a category axis, the val is the index so the lookup via getLabelForValue is needed
+                    maxTicksLimit: 4,
+                },
+            },
+        }
     };
 
     return (
