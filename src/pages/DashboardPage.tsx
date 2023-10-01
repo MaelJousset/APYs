@@ -8,6 +8,7 @@ import {
 
 import PageHeader from '../components/Header/PageHeader'
 import TopList from '../components/TopList/TopList'
+import TVLList from '../components/TVL/TVLList'
 
 
 
@@ -23,6 +24,7 @@ export default function DashboardPage() {
         >
             <PageHeader page_name={"Dashboard"} />
             <TopList />
+            <TVLList />
         </Flex>
     )
 }
