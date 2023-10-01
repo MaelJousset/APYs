@@ -1,14 +1,13 @@
-
-
 import PageLink from "./PageLink";
 import SearchBar from "./SearchBar"
 import WalletButton from "./WalletButton";
-
 
 import {
     Box,
     Flex,
 } from "@chakra-ui/react"
+
+import { useConnectors } from "@starknet-react/core/dist/hooks";
 
 
 interface PageHeaderProps {
@@ -38,6 +37,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ page_name }) => {
                 gap={5}
             >
                 <SearchBar onSearch={handleSearch} />
+
                 <WalletButton />
             </Flex>
         </Flex>

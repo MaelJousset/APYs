@@ -25,10 +25,11 @@ const TVLBox: React.FC<TVLBoxProps> = ({ pool, values }) => {
             paddingBottom={5}
             paddingTop={3}
             w={"370px"}
-            bgColor={"gray.200"}
+            bgColor={"blue.100"}
         >
             <Flex
                 flexDir={"column"}
+                gap={1}
             >
                 <Flex
                     flexDir={"row"}

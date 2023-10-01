@@ -15,7 +15,7 @@ function TVLList() {
         >
             <Flex
                 flexDir={"column"}
-                bgColor={"gray.100"}
+                bgColor={"blue.50"}
                 borderRadius={15}
                 paddingBottom={5}
                 paddingRight={5}

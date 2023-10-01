@@ -6,15 +6,29 @@ import reportWebVitals from "./reportWebVitals"
 import * as serviceWorker from "./serviceWorker"
 import theme from './themes'
 
+import { InjectedConnector } from "@starknet-react/core"
+import { StarknetConfig } from "@starknet-react/core/dist/providers"
+
 
 const container = document.getElementById("root")
 if (!container) throw new Error('Failed to find the root element');
 const root = ReactDOM.createRoot(container)
 
+const connectors = [
+  new InjectedConnector({ options: { id: "braavos" } }),
+  new InjectedConnector({ options: { id: "argentX" } }),
+];
+
 root.render(
   <React.StrictMode>
     <ColorModeScript initialColorMode={theme.config.initialColorMode} />
-    <App />
+    {/*<App />*/}
+    <StarknetConfig
+      connectors={connectors}
+      autoConnect
+    >
+      <App />
+    </StarknetConfig>
   </React.StrictMode>,
 )
 
