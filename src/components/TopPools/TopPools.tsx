@@ -2,7 +2,6 @@ import {
     Table,
     Thead,
     Tbody,
-    Tfoot,
     Tr,
     Th,
     Td,
@@ -21,8 +20,8 @@ interface TopPoolsProps {
 const TopPools: React.FC<TopPoolsProps> = ({ pools }) => {
     return (
         <Box
-            padding={12}
-            width="100%"
+            //padding={12}
+            width="full"
         >
             <Table
                 style={{

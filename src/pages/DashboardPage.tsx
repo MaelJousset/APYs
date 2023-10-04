@@ -18,6 +18,9 @@ export default function DashboardPage() {
             alignItems={"flex-start"}
             justifyContent={"space-between"}
             gap={10}
+            paddingLeft={{ base: 3, md: 12 }}
+            paddingRight={{ base: 3, md: 12 }}
+            paddingTop={{ base: 2, md: 8 }}
         >
             <PageHeader page_name={"Dashboard"} />
             <TopList />

@@ -3,16 +3,13 @@ import TVLBox from "./TVLBox";
 import {
     Box,
     Flex,
-    Image,
     Text,
 } from "@chakra-ui/react"
 
 
 function TVLList() {
     return (
-        <Box
-            paddingLeft={12}
-        >
+        <Box w={"full"} >
             <Flex
                 flexDir={"column"}
                 bgColor={"blue.50"}
@@ -21,8 +18,9 @@ function TVLList() {
                 paddingRight={5}
                 paddingLeft={5}
                 paddingTop={3}
-                gap={2}
+                justifyContent={"space-between"}
                 boxShadow='base'
+                w="full"
             >
                 <Text
                     fontFamily={"Plus Jakarta Sans, sans-serif"}

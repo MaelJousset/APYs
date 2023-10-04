@@ -1,7 +1,6 @@
 import {
     Box,
     Flex,
-    Image,
     Text,
 } from "@chakra-ui/react"
 
@@ -26,6 +25,7 @@ const TVLBox: React.FC<TVLBoxProps> = ({ pool, values }) => {
             paddingTop={3}
             w={"370px"}
             bgColor={"blue.100"}
+            shadow={"base"}
         >
             <Flex
                 flexDir={"column"}

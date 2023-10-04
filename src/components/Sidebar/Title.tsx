@@ -25,10 +25,10 @@ const Title: React.FC<TitleProps> = ({ logo, title }) => {
             <Image
                 src={logo}
                 borderRadius={"lg"}
-                width={"10"}
+                width={{ base: "8", md: "10" }}
             />
             <Heading
-                size="md"
+                size={{ base: "sm", md: "md" }}
                 fontFamily={"Plus Jakarta Sans, sans-serif"}
                 display={"flex"}
             >

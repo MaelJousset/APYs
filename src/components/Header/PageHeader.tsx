@@ -3,11 +3,8 @@ import SearchBar from "./SearchBar"
 import WalletButton from "./WalletButton";
 
 import {
-    Box,
     Flex,
 } from "@chakra-ui/react"
-
-import { useConnectors } from "@starknet-react/core/dist/hooks";
 
 
 interface PageHeaderProps {
@@ -25,19 +22,15 @@ const PageHeader: React.FC<PageHeaderProps> = ({ page_name }) => {
         <Flex
             width={"100%"}
             height={"100%"}
-            flexDirection={"row"}
-            alignItems={"center"}
+            flexDirection={{ base: "column", md: "row" }}
+            alignItems={{ base: "flex-start", md: "center" }}
+            gap={{ base: 3, md: 0 }}
             justifyContent={"space-between"}
-            paddingLeft={12}
-            paddingRight={10}
-            paddingTop={8}
+        //paddingTop={{ base: 0, md: 8 }}
         >
             <PageLink page_name={page_name}></PageLink>
-            <Flex
-                gap={5}
-            >
+            <Flex gap={5} >
                 <SearchBar onSearch={handleSearch} />
-
                 <WalletButton />
             </Flex>
         </Flex>

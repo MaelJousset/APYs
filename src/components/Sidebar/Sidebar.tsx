@@ -120,6 +120,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             borderBottomWidth="1px"
             borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
             justifyContent="flex-start"
+            //gap={6}
             {...rest}>
             <IconButton
                 variant="outline"
