@@ -6,9 +6,7 @@ import {
     Link,
     Menu,
     MenuButton,
-    MenuList,
     Box,
-    Center
 } from '@chakra-ui/react'
 import { IconType } from 'react-icons';
 
@@ -16,17 +14,16 @@ interface NavItemProps {
     icon: IconType; // Assuming 'logo' is a URL to an image
     title: string;
     active: boolean;
-    navSize: string;
     onClick?: () => void;
 }
 
-const NavItem: React.FC<NavItemProps> = ({ icon, title, active, navSize, onClick }) => {
+const NavItem: React.FC<NavItemProps> = ({ icon, title, active, onClick }) => {
     return (
         <Flex
             mt={30}
             flexDir="column"
             w="100%"
-            alignItems={navSize === "small" ? "center" : "flex-start"}
+            alignItems={"flex-start"}
         >
             <Menu placement="right">
                 <Link
@@ -34,7 +31,7 @@ const NavItem: React.FC<NavItemProps> = ({ icon, title, active, navSize, onClick
                     p={3}
                     borderRadius={16}
                     _hover={{ textDecor: 'none', backgroundColor: "white" }}
-                    w={navSize === "large" ? "100%" : ""}
+                    w={"100%"}
                     onClick={onClick}
                 >
                     <MenuButton w="100%">
@@ -45,21 +42,21 @@ const NavItem: React.FC<NavItemProps> = ({ icon, title, active, navSize, onClick
                                 display="flex"
                                 alignItems="center"  // Center vertically
                                 justifyContent="center" // Center horizontally
-                                bg={active ? "teal.200" : "white"}
+                                bg={active ? "blue.500" : "white"}
                                 borderRadius={"xl"}
                                 width={8}
                                 height={8}
                             >
                                 <Icon
                                     as={icon}
-                                    color={active ? "white" : "teal.200"}
+                                    color={active ? "white" : "blue.500"}
                                     w={4} h={4}
                                 />
                             </Box>
                             <Text
                                 ml={5}
-                                display={navSize === "small" ? "none" : "flex"}
-                                color={active ? "blue.900" : "gray.400"}
+                                display={"flex"}
+                                color={active ? "blue.900" : "blue.500"}
                                 fontWeight={active ? "bold" : "medium"}
                             >
                                 {title}

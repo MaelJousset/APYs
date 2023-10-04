@@ -1,6 +1,3 @@
-
-
-
 import {
     Box,
     Flex,
@@ -17,7 +14,7 @@ interface TopProps {
 const Top: React.FC<TopProps> = ({ title, pool, origin, apy }) => {
     return (
         <Box
-            bgColor={"gray.100"}
+            bgColor={"blue.50"}
             borderRadius={"15px"}
             w={"380px"}
             h={"80px"}
@@ -39,7 +36,7 @@ const Top: React.FC<TopProps> = ({ title, pool, origin, apy }) => {
                         fontWeight={"bold"}
                         fontFamily={"Plus Jakarta Sans, sans-serif"}
                         fontSize={"12px"}
-                        color={"gray.400"}
+                        color={"blue.400"}
                     >
                         {title}
                     </Text>
@@ -47,7 +44,7 @@ const Top: React.FC<TopProps> = ({ title, pool, origin, apy }) => {
                         fontFamily={"Plus Jakarta Sans, sans-serif"}
                         fontSize={"18px"}
                         fontWeight={"bold"}
-                        color={"gray.800"}
+                        color={"blue.800"}
                     >
                         {pool}
                     </Text>

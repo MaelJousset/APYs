@@ -12,7 +12,7 @@ import { FaWallet } from 'react-icons/fa'
 function WalletButton() {
     return (
         <Stack direction='row' spacing={4}>
-            <Button leftIcon={<FaWallet />} colorScheme='teal' variant='solid'>
+            <Button leftIcon={<FaWallet />} colorScheme='blue' variant='solid'>
                 Connect Wallet
             </Button>
         </Stack>

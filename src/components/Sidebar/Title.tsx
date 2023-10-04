@@ -9,18 +9,15 @@ import {
 interface TitleProps {
     logo: string; // Assuming 'logo' is a URL to an image
     title: string;
-    onClick?: () => void;
-    navSize: string;
 }
 
-const Title: React.FC<TitleProps> = ({ logo, title, onClick, navSize }) => {
+const Title: React.FC<TitleProps> = ({ logo, title }) => {
     return (
         <Flex
             color="blue.900"
             alignItems={"center"}
             flexDirection={"row"}
-            justifyContent={navSize === "small" ? "center" : "flex-start"}
-            paddingTop={navSize === "small" ? "22%" : ""}
+            justifyContent={"flex-start"}
             gap={3}
             w="100%"
 
@@ -29,12 +26,11 @@ const Title: React.FC<TitleProps> = ({ logo, title, onClick, navSize }) => {
                 src={logo}
                 borderRadius={"lg"}
                 width={"10"}
-                onClick={onClick}
             />
             <Heading
                 size="md"
                 fontFamily={"Plus Jakarta Sans, sans-serif"}
-                display={navSize === "small" ? "none" : "flex"}
+                display={"flex"}
             >
                 {title}
             </Heading>

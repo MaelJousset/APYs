@@ -5,7 +5,6 @@ import {
     Link,
     Menu,
     MenuButton,
-    MenuList,
     Image,
     Box,
 } from '@chakra-ui/react'
@@ -15,17 +14,16 @@ interface NavImageItemProps {
     image: string; // Assuming 'image' is a URL to an image
     title: string;
     active: boolean;
-    navSize: string;
     onClick?: () => void;
 }
 
-const NavImageItem: React.FC<NavImageItemProps> = ({ image, title, active, navSize, onClick }) => {
+const NavImageItem: React.FC<NavImageItemProps> = ({ image, title, active, onClick }) => {
     return (
         <Flex
             mt={30}
             flexDir="column"
             w="100%"
-            alignItems={navSize === "small" ? "center" : "flex-start"}
+            alignItems={"flex-start"}
         >
             <Menu placement="right">
                 <Link
@@ -33,7 +31,7 @@ const NavImageItem: React.FC<NavImageItemProps> = ({ image, title, active, navSi
                     p={3}
                     borderRadius={16}
                     _hover={{ textDecor: 'none', backgroundColor: "white" }}
-                    w={navSize === "large" ? "100%" : ""}
+                    w={"100%"}
                     onClick={onClick}
                     display="flex" // Add this property to make Link a flex container
                     alignItems="center" // Align items vertically within the Link
@@ -60,8 +58,8 @@ const NavImageItem: React.FC<NavImageItemProps> = ({ image, title, active, navSi
                             </Box>
                             <Text
                                 ml={5}
-                                display={navSize === "small" ? "none" : "flex"}
-                                color={active ? "blue.900" : "gray.400"}
+                                display={"flex"}
+                                color={active ? "blue.900" : "blue.500"}
                                 fontWeight={active ? "bold" : "medium"}
                                 lineHeight={"12px"}
                             >

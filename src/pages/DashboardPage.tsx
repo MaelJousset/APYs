@@ -12,7 +12,6 @@ import TVLList from '../components/TVL/TVLList'
 import TopPools from '../components/TopPools/TopPools'
 
 
-
 export default function DashboardPage() {
     return (
         <Flex

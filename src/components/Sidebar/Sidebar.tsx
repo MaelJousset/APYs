@@ -1,12 +1,20 @@
+'use client'
+
 import React, { useState } from 'react'
 import {
+    IconButton,
+    Box,
+    CloseButton,
     Flex,
-    Text,
+    useColorModeValue,
     Divider,
-    Avatar,
-    Heading
+    Drawer,
+    DrawerContent,
+    useDisclosure,
+    BoxProps,
+    FlexProps,
 } from '@chakra-ui/react'
-
+import { FiMenu } from 'react-icons/fi'
 import { IoIosHome } from 'react-icons/io'
 import { FaWallet } from 'react-icons/fa'
 
@@ -14,12 +22,42 @@ import NavItem from './NavItem'
 import NavImageItem from './NavImageItem'
 import Title from './Title'
 
-interface SidebarProps {
-    setCurrentPage: (page: string) => void;
+
+interface SimpleSidebarProps {
+    setCurrentPage: (page: string) => void,
 }
 
-export default function Sidebar({ setCurrentPage }: SidebarProps) {
-    const [navSize, changeNavSize] = useState("large")
+const SimpleSidebar: React.FC<SimpleSidebarProps> = ({ setCurrentPage }) => {
+    const { isOpen, onOpen, onClose } = useDisclosure()
+    return (
+        <Box minH="100vh">
+            <SidebarContent setCurrentPage={setCurrentPage} onClose={() => onClose} display={{ base: 'none', md: 'block' }} />
+            <Drawer
+                isOpen={isOpen}
+                placement="left"
+                onClose={onClose}
+                returnFocusOnClose={false}
+                onOverlayClick={onClose}
+                size="full">
+                <DrawerContent>
+                    <SidebarContent setCurrentPage={setCurrentPage} onClose={onClose} />
+                </DrawerContent>
+            </Drawer>
+            {/* mobilenav */}
+            <MobileNav display={{ base: 'flex', md: 'none' }} onOpen={onOpen} />
+            <Box ml={{ base: 0, md: 60 }}>
+                {/* Content */}
+            </Box>
+        </Box>
+    )
+}
+
+interface SidebarProps extends BoxProps {
+    onClose: () => void,
+    setCurrentPage: (page: string) => void,
+}
+
+const SidebarContent = ({ onClose, setCurrentPage, ...rest }: SidebarProps) => {
 
     const [activePage, setActivePage] = useState('dashboard_page');
 
@@ -29,77 +67,66 @@ export default function Sidebar({ setCurrentPage }: SidebarProps) {
     };
 
     return (
-        <Flex
-            pos="sticky"
-            h="100vh"
-            boxShadow="0 4px 12px 0 rgba(0, 0, 0, 0.05)"
-            //borderRadius={navSize === "small" ? "15px" : "30px"}
-            w={navSize === "small" ? "75px" : "280px"}
-            flexDir="column"
-            justifyContent="space-between"
-            bg={"gray.100"}
-        >
-            <Flex
-                p="7%"
-                flexDir="column"
-                w="100%"
-                alignItems={navSize === "small" ? "center" : "flex-start"}
-                as="nav"
-            >
-                <Title
-                    logo="/assets/APY_logo.png"
-                    title="APY DASHBOARD"
-                    onClick={() => {
-                        if (navSize === "small")
-                            changeNavSize("large")
-                        else
-                            changeNavSize("small")
-                    }}
-                    navSize={navSize}
-                />
-                <Flex
-                    paddingTop={navSize === "small" ? "17%" : "5%"}
-                    paddingLeft="5%"
-                    flexDir="column"
-                    w="100%"
-                    alignItems={navSize === "small" ? "center" : "flex-start"}
-                    as="nav"
-                >
-                    <Divider w="80%" />
-                    <NavItem navSize={navSize} icon={IoIosHome} title="Dashboard" active={activePage === 'dashboard_page'}
-                        onClick={() => handleButtonClick('dashboard_page')}
-                    />
-                    <NavImageItem navSize={navSize} image={"/assets/myswap.png"} title="MySwap" active={activePage === 'myswap_page'}
-                        onClick={() => handleButtonClick('myswap_page')}
-                    />
-                    <NavImageItem navSize={navSize} image={"/assets/jediswap.jpg"} title="JediSwap" active={activePage === 'jediswap_page'}
-                        onClick={() => handleButtonClick('jediswap_page')}
-                    />
-                    <NavImageItem navSize={navSize} image={"/assets/ekubo.png"} title="Ekubo" active={activePage === 'ekubo_page'}
-                        onClick={() => handleButtonClick('ekubo_page')}
-                    />
-                    <NavItem navSize={navSize} icon={FaWallet} title="My Wallet" active={activePage === 'mywallet_page'}
-                        onClick={() => handleButtonClick('mywallet_page')}
-                    />
-                </Flex>
+        <Box
+            bgColor={"blue.50"}
+            paddingLeft={5}
+            paddingRight={5}
+            shadow={"base"}
+            w={{ base: 'full', md: 60 }
+            }
+            pos="fixed"
+            h="full"
+            {...rest}>
+            <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
+                <Title logo="/assets/APY_logo.png"
+                    title="STARK VIEWER" />
+                <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
             </Flex>
+            <Divider w="80%" />
+            <NavItem icon={IoIosHome} title="Dashboard" active={activePage === 'dashboard_page'}
+                onClick={() => handleButtonClick('dashboard_page')}
+            />
+            <NavImageItem image={"/assets/myswap.png"} title="MySwap" active={activePage === 'myswap_page'}
+                onClick={() => handleButtonClick('myswap_page')}
+            />
+            <NavImageItem image={"/assets/jediswap.jpg"} title="JediSwap" active={activePage === 'jediswap_page'}
+                onClick={() => handleButtonClick('jediswap_page')}
+            />
+            <NavImageItem image={"/assets/ekubo.png"} title="Ekubo" active={activePage === 'ekubo_page'}
+                onClick={() => handleButtonClick('ekubo_page')}
+            />
+            <NavItem icon={FaWallet} title="My Wallet" active={activePage === 'mywallet_page'}
+                onClick={() => handleButtonClick('mywallet_page')}
+            />
+        </Box >
+    )
+}
 
-            <Flex
-                p="5%"
-                flexDir="column"
-                w="100%"
-                alignItems={navSize === "small" ? "center" : "flex-start"}
-                mb={4}
-            >
-                <Divider display={navSize === "small" ? "none" : "flex"} />
-                <Flex mt={4} align="center">
-                    <Avatar size="sm" src="avatar-1.jpg" />
-                    <Flex flexDir="column" ml={4} display={navSize === "small" ? "none" : "flex"}>
-                        <Heading as="h3" size="sm">Sylwia Weller</Heading>
-                        <Text color="gray">Admin</Text>
-                    </Flex>
-                </Flex>
-            </Flex>
+interface MobileProps extends FlexProps {
+    onOpen: () => void,
+}
+const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
+    return (
+        <Flex
+            ml={{ base: 0, md: 60 }}
+            px={{ base: 4, md: 24 }}
+            height="20"
+            alignItems="center"
+            bgColor={"blue.50"}
+            borderBottomWidth="1px"
+            borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
+            justifyContent="flex-start"
+            {...rest}>
+            <IconButton
+                variant="outline"
+                onClick={onOpen}
+                aria-label="open menu"
+                icon={<FiMenu />}
+            />
+            <Title logo="/assets/APY_logo.png"
+                title="STARK VIEWER" />
         </Flex>
     )
 }
+
+export default SimpleSidebar;

@@ -20,7 +20,7 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Flex
-        flexDirection={"row"}
+        /*flexDirection={{ base: "column", md: "row" }}*/
         fontFamily={"Plus Jakarta Sans, sans-serif"}
       >
         <Sidebar setCurrentPage={setActivePage} />
