@@ -5,7 +5,7 @@ import Top from "./Top";
 function TopList() {
     return (
         <Flex
-            flexDir={"row"}
+            flexDir={{ base: "column", md: "row" }}
             paddingLeft={12}
             gap={25}
         >

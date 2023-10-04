@@ -1,9 +1,5 @@
-import React, { useState } from 'react'
 import {
     Flex,
-    Text,
-    Heading,
-    Box,
 } from '@chakra-ui/react'
 
 import PageHeader from '../components/Header/PageHeader'
@@ -15,6 +11,7 @@ import TopPools from '../components/TopPools/TopPools'
 export default function DashboardPage() {
     return (
         <Flex
+            pt={{ base: 6, md: 0 }}
             width={"100%"}
             height={"100%"}
             flexDirection={"column"}

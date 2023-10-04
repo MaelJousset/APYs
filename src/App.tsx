@@ -20,8 +20,9 @@ function App() {
   return (
     <ChakraProvider theme={theme}>
       <Flex
-        /*flexDirection={{ base: "column", md: "row" }}*/
+        flexDirection={{ base: "column", md: "row" }}
         fontFamily={"Plus Jakarta Sans, sans-serif"}
+        width="full"
       >
         <Sidebar setCurrentPage={setActivePage} />
         {activePage === 'dashboard_page' && <DashboardPage />}

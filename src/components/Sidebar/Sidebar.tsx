@@ -9,6 +9,7 @@ import {
     useColorModeValue,
     Divider,
     Drawer,
+    DrawerOverlay,
     DrawerContent,
     useDisclosure,
     BoxProps,
@@ -30,7 +31,7 @@ interface SimpleSidebarProps {
 const SimpleSidebar: React.FC<SimpleSidebarProps> = ({ setCurrentPage }) => {
     const { isOpen, onOpen, onClose } = useDisclosure()
     return (
-        <Box minH="100vh">
+        <Box>
             <SidebarContent setCurrentPage={setCurrentPage} onClose={() => onClose} display={{ base: 'none', md: 'block' }} />
             <Drawer
                 isOpen={isOpen}
@@ -39,6 +40,7 @@ const SimpleSidebar: React.FC<SimpleSidebarProps> = ({ setCurrentPage }) => {
                 returnFocusOnClose={false}
                 onOverlayClick={onClose}
                 size="full">
+                <DrawerOverlay />
                 <DrawerContent>
                     <SidebarContent setCurrentPage={setCurrentPage} onClose={onClose} />
                 </DrawerContent>
@@ -71,6 +73,7 @@ const SidebarContent = ({ onClose, setCurrentPage, ...rest }: SidebarProps) => {
             bgColor={"blue.50"}
             paddingLeft={5}
             paddingRight={5}
+            paddingTop={{ base: 2, md: 4 }}
             shadow={"base"}
             w={{ base: 'full', md: 60 }
             }
@@ -111,6 +114,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             ml={{ base: 0, md: 60 }}
             px={{ base: 4, md: 24 }}
             height="20"
+            w="full"
             alignItems="center"
             bgColor={"blue.50"}
             borderBottomWidth="1px"

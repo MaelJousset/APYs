@@ -34,7 +34,7 @@ function TVLList() {
                     TVL
                 </Text>
                 <Flex
-                    flexDir={"row"}
+                    flexDir={{ base: "column", md: "row" }}
 
                     gap={25}
 
