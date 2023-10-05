@@ -22,7 +22,7 @@ const SearchBar: React.FC<SearchBarProps> = ({ onSearch }) => {
 
     return (
         <InputGroup
-            maxWidth={48}
+            maxWidth={{ base: "90%", md: 48 }}
         >
             <InputLeftElement pointerEvents='none'>
                 <SearchIcon color='gray.300' />

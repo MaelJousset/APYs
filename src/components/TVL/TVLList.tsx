@@ -15,8 +15,8 @@ function TVLList() {
                 bgColor={"blue.50"}
                 borderRadius={15}
                 paddingBottom={5}
-                paddingRight={5}
-                paddingLeft={5}
+                paddingRight={{ base: 0, md: 5 }}
+                paddingLeft={{ base: 0, md: 5 }}
                 paddingTop={3}
                 justifyContent={"space-between"}
                 boxShadow='base'
@@ -27,14 +27,15 @@ function TVLList() {
                     fontSize={"24px"}
                     fontWeight={"bold"}
                     color={"blue.900"}
-                    paddingLeft={2}
+                    paddingLeft={{ base: 6, md: 2 }}
+                    paddingBottom={2}
                 >
                     TVL
                 </Text>
                 <Flex
                     flexDir={{ base: "column", md: "row" }}
-
-                    gap={25}
+                    alignItems={"center"}
+                    gap={{ base: 5, md: 25 }}
 
                 >
                     <TVLBox

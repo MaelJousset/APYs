@@ -23,7 +23,7 @@ const TVLBox: React.FC<TVLBoxProps> = ({ pool, values }) => {
             paddingRight={5}
             paddingBottom={5}
             paddingTop={3}
-            w={"370px"}
+            w={"90%"}
             bgColor={"blue.100"}
             shadow={"base"}
         >

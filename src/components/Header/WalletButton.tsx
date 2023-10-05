@@ -13,7 +13,13 @@ import { connect, disconnect } from "get-starknet"
 function WalletButton() {
     return (
         <Stack direction='row' spacing={4}>
-            <Button leftIcon={<FaWallet />} onClick={() => connect()} colorScheme='blue' variant='solid'>
+            <Button
+                leftIcon={<FaWallet />}
+                onClick={() => connect()}
+                colorScheme='blue'
+                variant='solid'
+                size={{ base: 'sm', md: 'md' }}
+            >
                 Connect Wallet
             </Button>
         </Stack>
