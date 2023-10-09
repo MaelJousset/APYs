@@ -19,8 +19,8 @@ const Top: React.FC<TopProps> = ({ title, pool, origin, apy }) => {
         <Box
             bgColor={"blue.50"}
             borderRadius={"15px"}
-            w={"380px"}
-            h={"80px"}
+            w={{ base: "100%", md: "380px" }}
+            h={{ base: "60px", md: "80px" }}
             boxShadow='base'
         >
             <Flex
@@ -38,14 +38,14 @@ const Top: React.FC<TopProps> = ({ title, pool, origin, apy }) => {
                     <Text
                         fontWeight={"bold"}
                         fontFamily={"Plus Jakarta Sans, sans-serif"}
-                        fontSize={"12px"}
+                        fontSize={{ base: "10px", md: "12px" }}
                         color={"blue.400"}
                     >
                         {title}
                     </Text>
                     <Text
                         fontFamily={"Plus Jakarta Sans, sans-serif"}
-                        fontSize={"18px"}
+                        fontSize={{ base: "14px", md: "18px" }}
                         fontWeight={"bold"}
                         color={"blue.800"}
                     >
@@ -62,7 +62,7 @@ const Top: React.FC<TopProps> = ({ title, pool, origin, apy }) => {
                         color={"green.400"}
                         fontFamily={"Plus Jakarta Sans, sans-serif"}
                         fontWeight={"bold"}
-                        fontSize={"16px"}
+                        fontSize={{ base: "12px", md: "16px" }}
                     >
                         {apy + '%'}
                     </Text>

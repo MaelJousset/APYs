@@ -19,43 +19,39 @@ interface TopPoolsProps {
 }
 const TopPools: React.FC<TopPoolsProps> = ({ pools }) => {
     return (
-        <Box
-            //padding={12}
-            width="full"
-        >
-            <Table
-                style={{
-                    borderCollapse: 'separate',
-                    borderSpacing: '3px'
-                }}
-                border="2px solid"
-                borderColor="blue.100"
-                rounded="md"
-                width={"100%"}
+        <Table
+            style={{
+                borderCollapse: 'separate',
+                borderSpacing: '3px'
+            }}
+            border="2px solid"
+            borderColor="blue.100"
+            rounded="md"
+            width={"100%"}
+            size={{ base: "sm", md: "md" }}
 
-                variant='striped'
-                colorScheme='blue'
-            >
-                <Thead>
+            variant='striped'
+            colorScheme='blue'
+        >
+            <Thead>
+                <Tr>
+                    <Th>Pool</Th>
+                    <Th>Provider</Th>
+                    <Th isNumeric>TVL</Th>
+                    <Th isNumeric>APR</Th>
+                </Tr>
+            </Thead>
+            <Tbody>
+                {pools.map((pool) => (
                     <Tr>
-                        <Th>Pool</Th>
-                        <Th>Provider</Th>
-                        <Th isNumeric>TVL</Th>
-                        <Th isNumeric>APR</Th>
+                        <Td>{pool.name}</Td>
+                        <Td>{pool.origin}</Td>
+                        <Td isNumeric>{pool.tvl}</Td>
+                        <Td isNumeric>{pool.apr}</Td>
                     </Tr>
-                </Thead>
-                <Tbody>
-                    {pools.map((pool) => (
-                        <Tr>
-                            <Td>{pool.name}</Td>
-                            <Td>{pool.origin}</Td>
-                            <Td isNumeric>{pool.tvl}</Td>
-                            <Td isNumeric>{pool.apr}</Td>
-                        </Tr>
-                    ))}
-                </Tbody>
-            </Table>
-        </Box>
+                ))}
+            </Tbody>
+        </Table>
     )
 }
 

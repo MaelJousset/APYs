@@ -17,8 +17,8 @@ const Title: React.FC<TitleProps> = ({ logo, title }) => {
             color="blue.900"
             alignItems={"center"}
             flexDirection={"row"}
-            justifyContent={"flex-start"}
-            gap={3}
+            justifyContent={{ base: "center", md: "flex-start" }}
+            gap={{ base: 2, md: 3 }}
             w="100%"
 
         >

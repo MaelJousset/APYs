@@ -8,6 +8,7 @@ function TopList() {
             flexDir={{ base: "column", md: "row" }}
             justifyContent={"space-between"}
             w={"full"}
+            gap={{ base: 3, md: "" }}
         >
             <Top title={"Best Weekly APY"} pool={"ETH/USD"} origin={"ekubo"} apy={15}></Top>
             <Top title={"Best Weekly APY"} pool={"ETH/USD"} origin={"ekubo"} apy={15}></Top>
