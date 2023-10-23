@@ -1,5 +1,6 @@
+import React, { useState } from 'react';
 
-
+import WalletService from '../../services/WalletService';
 
 import {
     Button,
@@ -7,22 +8,41 @@ import {
 } from "@chakra-ui/react"
 
 import { FaWallet } from 'react-icons/fa'
-import { connect, disconnect } from "get-starknet"
+import { GoSignOut } from "react-icons/go";
 
 
 function WalletButton() {
+    //const [disconnected, setDisconnected] = useState(false); // State to store connection status
+    const [connectText, setConnectText] = useState("Connect"); // State to store connection status
+    const [connectIcon, setConnectIcon] = useState(<FaWallet />); // State to store connection status
+    const walletService = new WalletService(); // Create a WalletService instance
+
+    const handleClick = () => {
+        if (walletService.getWalletAddress()) {
+            walletService.disconnectWallet();
+            //setDisconnected(true); // Update state
+            setConnectText("Connect");
+            setConnectIcon(<FaWallet />);
+        } else {
+            walletService.connectWallet();
+            //setDisconnected(false); // Update state
+            setConnectText("Disconnect");
+            setConnectIcon(<GoSignOut />);
+        }
+    };
+
     return (
         <Stack direction='row' spacing={4}>
             <Button
-                leftIcon={<FaWallet />}
-                onClick={() => connect()}
+                leftIcon={connectIcon}
+                onClick={() => handleClick()}
                 colorScheme='blue'
                 variant='solid'
                 size={{ base: 'sm', md: 'md' }}
             >
-                Connect Wallet
-            </Button>
-        </Stack>
+                {connectText}
+            </Button >
+        </Stack >
     )
 }
 
