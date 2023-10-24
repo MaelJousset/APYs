@@ -65,7 +65,8 @@ export default function TopPools() {
             <Center>
                 <Button
                     fontFamily={"Plus Jakarta Sans, sans-serif"}
-                    colorScheme="twitter"
+                    colorScheme='blue'
+                    variant='solid'
                     size="sm"
                     borderRadius={5}
                     marginTop={3}

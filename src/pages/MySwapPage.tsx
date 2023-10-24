@@ -46,6 +46,7 @@ export default function MySwapPage() {
                 <AllPools></AllPools>
                 <Flex
                     flexDir={"column"}
+                    w="20%"
                 >
                     <EstimatedEarnings></EstimatedEarnings>
                     <Links></Links>

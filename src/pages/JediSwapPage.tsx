@@ -30,6 +30,10 @@ export default function JediSwapPage() {
         >
             <Flex
                 flexDir={"row"}
+                w="100%"
+                justifyContent={"space-between"}
+                gap={10}
+                alignItems={"flex-start"}
             >
                 <TvlChart></TvlChart>
                 <TopPools></TopPools>
@@ -37,10 +41,12 @@ export default function JediSwapPage() {
             </Flex>
             <Flex
                 flexDir={"row"}
+                w="100%"
             >
                 <AllPools></AllPools>
                 <Flex
                     flexDir={"column"}
+                    w="20%"
                 >
                     <EstimatedEarnings></EstimatedEarnings>
                     <Links></Links>

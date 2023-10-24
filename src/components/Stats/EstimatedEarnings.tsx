@@ -10,6 +10,8 @@ import {
     Th,
     Tbody,
     Td,
+    Button,
+    Center,
 } from '@chakra-ui/react'
 
 
@@ -19,7 +21,7 @@ export default function EstimatedEarnings() {
             bgColor={"blue.50"}
             borderRadius={"15px"}
             boxShadow='base'
-            w="20%"
+            w="100%"
         >
             <Text
                 fontFamily={"Plus Jakarta Sans, sans-serif"}
@@ -27,16 +29,18 @@ export default function EstimatedEarnings() {
                 fontWeight={"bold"}
                 color={"blue.900"}
                 textAlign={"center"}
+                paddingTop={2}
+                paddingBottom={2}
             >
-                TOP POOLS
+                ESTIMATED EARININGS
             </Text>
             <Table
                 rounded="md"
                 width={"100%"}
-                size={{ base: "sm", md: "md" }}
-
+                size={"sm"}
                 variant='striped'
                 colorScheme='blue'
+                fontFamily={"Plus Jakarta Sans, sans-serif"}
             >
                 <Thead>
                     <Tr>
@@ -46,18 +50,32 @@ export default function EstimatedEarnings() {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    <Tr>
-                        <Td>ETH/USD</Td>
-                        <Td isNumeric>$12.4M</Td>
-                        <Td isNumeric>20.4%</Td>
+                    <Tr borderStyle={"hidden"}>
+                        <Td fontSize={"13px"} >ETH/USD</Td>
+                        <Td fontSize={"13px"} isNumeric>$12.4M</Td>
+                        <Td fontSize={"13px"} isNumeric>20.4%</Td>
                     </Tr>
-                    <Tr>
-                        <Td>ETH/USD</Td>
-                        <Td isNumeric>$12.4M</Td>
-                        <Td isNumeric>20.4%</Td>
+                    <Tr borderStyle={"hidden"}>
+                        <Td fontSize={"13px"} >ETH/USD</Td>
+                        <Td fontSize={"13px"} isNumeric>$12.4M</Td>
+                        <Td fontSize={"13px"} isNumeric>20.4%</Td>
                     </Tr>
                 </Tbody>
             </Table>
+            <Center>
+                <Button
+                    fontFamily={"Plus Jakarta Sans, sans-serif"}
+                    colorScheme='blue'
+                    variant='solid'
+                    size="sm"
+                    borderRadius={5}
+                    marginTop={3}
+                    marginBottom={2}
+                >
+                    Show More
+                </Button>
+            </Center>
+
         </Box>
     )
 }
