@@ -19,6 +19,7 @@ export default function TopPools() {
             bgColor={"blue.50"}
             borderRadius={"15px"}
             boxShadow='base'
+            w="20%"
         >
             <Text
                 fontFamily={"Plus Jakarta Sans, sans-serif"}
@@ -33,7 +34,6 @@ export default function TopPools() {
                 rounded="md"
                 width={"100%"}
                 size={{ base: "sm", md: "md" }}
-
                 variant='striped'
                 colorScheme='blue'
             >
