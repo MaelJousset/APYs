@@ -17,8 +17,10 @@ function WalletButton() {
     const walletService = new WalletService();
 
     const handleClick = () => {
-        if (walletService.getWalletAddress()) {
+        if (walletService.getWalletAddress() != null) {
             walletService.disconnectWallet();
+            //setConnectText('Connect');
+            //setConnectIcon(<FaWallet />);
         } else {
             walletService.connectWallet();
         }
@@ -27,12 +29,9 @@ function WalletButton() {
     // Register callbacks when the component is mounted
     useEffect(() => {
         const handleConnect = (address: string) => {
-            if (address) {
+            if (address != null) {
                 setConnectText('Disconnect');
                 setConnectIcon(<GoSignOut />);
-            } else {
-                setConnectText('Connect');
-                setConnectIcon(<FaWallet />);
             }
         };
 
