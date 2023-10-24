@@ -29,17 +29,13 @@ function App() {
           flexDirection={"column"}
           width={"full"}
         >
-          {activePage === 'dashboard_page' && <PageHeader page_name={"Dashboard"} />}
-          {activePage === 'myswap_page' && <PageHeader page_name={"MySwap"} />}
-          {activePage === 'jediswap_page' && <PageHeader page_name={"JediSwap"} />}
-          {activePage === 'ekubo_page' && <PageHeader page_name={"Ekubo"} />}
-          {activePage === 'mywallet_page' && <PageHeader page_name={"My Wallet"} />}
+          <PageHeader active_page={activePage} />
 
-          {activePage === 'dashboard_page' && <DashboardPage />}
-          {activePage === 'myswap_page' && <MySwapPage />}
-          {activePage === 'jediswap_page' && <JediSwapPage />}
-          {activePage === 'ekubo_page' && <EkuboPage />}
-          {activePage === 'mywallet_page' && <MyWalletPage />}
+          {activePage === 'Dashboard' && <DashboardPage />}
+          {activePage === 'MySwap' && <MySwapPage />}
+          {activePage === 'JediSwap' && <JediSwapPage />}
+          {activePage === 'Ekubo' && <EkuboPage />}
+          {activePage === 'My Wallet' && <MyWalletPage />}
         </Flex>
 
       </Flex>

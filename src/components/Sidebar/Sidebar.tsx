@@ -61,7 +61,7 @@ interface SidebarProps extends BoxProps {
 
 const SidebarContent = ({ onClose, setCurrentPage, ...rest }: SidebarProps) => {
 
-    const [activePage, setActivePage] = useState('dashboard_page');
+    const [activePage, setActivePage] = useState('Dashboard');
 
     const handleButtonClick = (pageName: string) => {
         setActivePage(pageName);
@@ -86,20 +86,20 @@ const SidebarContent = ({ onClose, setCurrentPage, ...rest }: SidebarProps) => {
                 <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
             </Flex>
             <Divider w="80%" />
-            <NavItem icon={IoIosHome} title="Dashboard" active={activePage === 'dashboard_page'}
-                onClick={() => handleButtonClick('dashboard_page')}
+            <NavItem icon={IoIosHome} title="Dashboard" active={activePage === 'Dashboard'}
+                onClick={() => handleButtonClick('Dashboard')}
             />
-            <NavImageItem image={"/assets/myswap.png"} title="MySwap" active={activePage === 'myswap_page'}
-                onClick={() => handleButtonClick('myswap_page')}
+            <NavImageItem image={"/assets/myswap.png"} title="MySwap" active={activePage === 'MySwap'}
+                onClick={() => handleButtonClick('MySwap')}
             />
-            <NavImageItem image={"/assets/jediswap.jpg"} title="JediSwap" active={activePage === 'jediswap_page'}
-                onClick={() => handleButtonClick('jediswap_page')}
+            <NavImageItem image={"/assets/jediswap.jpg"} title="JediSwap" active={activePage === 'JediSwap'}
+                onClick={() => handleButtonClick('JediSwap')}
             />
-            <NavImageItem image={"/assets/ekubo.png"} title="Ekubo" active={activePage === 'ekubo_page'}
-                onClick={() => handleButtonClick('ekubo_page')}
+            <NavImageItem image={"/assets/ekubo.png"} title="Ekubo" active={activePage === 'Ekubo'}
+                onClick={() => handleButtonClick('Ekubo')}
             />
-            <NavItem icon={FaWallet} title="My Wallet" active={activePage === 'mywallet_page'}
-                onClick={() => handleButtonClick('mywallet_page')}
+            <NavItem icon={FaWallet} title="My Wallet" active={activePage === 'My Wallet'}
+                onClick={() => handleButtonClick('My Wallet')}
             />
         </Box >
     )

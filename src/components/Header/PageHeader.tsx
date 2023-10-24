@@ -9,10 +9,10 @@ import {
 
 
 interface PageHeaderProps {
-    page_name: string;
+    active_page: string;
 }
 
-const PageHeader: React.FC<PageHeaderProps> = ({ page_name }) => {
+const PageHeader: React.FC<PageHeaderProps> = ({ active_page }) => {
 
     const isLargeScreen = useBreakpointValue({ base: false, md: true });
 
@@ -36,7 +36,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ page_name }) => {
                         paddingLeft={{ base: 2, md: 14 }}
                         paddingRight={{ base: 2, md: 14 }}
                     >
-                        <PageLink page_name={page_name}></PageLink>
+                        <PageLink page_name={active_page}></PageLink>
                         <Flex gap={5} >
                             <SearchBar onSearch={handleSearch} />
                             <WalletButton />
@@ -58,7 +58,7 @@ const PageHeader: React.FC<PageHeaderProps> = ({ page_name }) => {
                             justifyContent={"space-between"}
                             width={"full"}
                         >
-                            <PageLink page_name={page_name}></PageLink>
+                            <PageLink page_name={active_page}></PageLink>
                             <WalletButton />
                         </Flex>
                         <SearchBar onSearch={handleSearch} />
