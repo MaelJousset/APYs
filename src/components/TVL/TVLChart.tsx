@@ -26,10 +26,9 @@ ChartJS.register(
 
 interface TVLChartProps {
     chartData: { x: Date; y: number }[],
-    pool: string;
 }
 
-const TVLChart: React.FC<TVLChartProps> = ({ chartData, pool }) => {
+const TVLChart: React.FC<TVLChartProps> = ({ chartData }) => {
 
     var months = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June",
         "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];

@@ -5,7 +5,6 @@ import {
     Tr,
     Th,
     Td,
-    Box,
 } from '@chakra-ui/react'
 
 

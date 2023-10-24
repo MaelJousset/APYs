@@ -45,9 +45,7 @@ const TVLBox: React.FC<TVLBoxProps> = ({ pool, values }) => {
                     </Text>
                     <TVLValue values={values} />
                 </Flex>
-                <TVLChart
-                    chartData={values} pool={pool}
-                />
+                <TVLChart chartData={values} />
             </Flex>
 
         </Box>
