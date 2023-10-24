@@ -2,7 +2,6 @@ import {
     Flex,
 } from '@chakra-ui/react'
 
-import PageHeader from '../components/Header/PageHeader'
 import TopList from '../components/TopList/TopList'
 import TVLList from '../components/TVL/TVLList'
 import TopPools from '../components/TopPools/TopPools'
@@ -22,7 +21,6 @@ export default function DashboardPage() {
             paddingRight={{ base: 3, md: 12 }}
             paddingTop={{ base: 2, md: 8 }}
         >
-            <PageHeader page_name={"Dashboard"} />
             <TopList />
             <TVLList />
             <TopPools pools={[{ name: "ETH/USD", origin: "Ekubo", tvl: 5, apr: 5 },

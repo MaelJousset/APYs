@@ -6,15 +6,22 @@ import {
     Box,
 } from '@chakra-ui/react'
 
-import PageHeader from '../components/Header/PageHeader'
 
 export default function MyWalletPage() {
     return (
-        <Box
+        <Flex
+            pt={{ base: 6, md: 0 }}
             width={"100%"}
             height={"100%"}
+            flexDirection={"column"}
+            alignItems={"flex-start"}
+            justifyContent={"space-between"}
+            gap={10}
+            paddingLeft={{ base: 3, md: 12 }}
+            paddingRight={{ base: 3, md: 12 }}
+            paddingTop={{ base: 2, md: 8 }}
         >
-            <PageHeader page_name={"My Wallet"}></PageHeader>
-        </Box>
+
+        </Flex>
     )
 }

@@ -32,7 +32,9 @@ const PageHeader: React.FC<PageHeaderProps> = ({ page_name }) => {
                         alignItems={"center"}
                         gap={{ base: 3, md: 0 }}
                         justifyContent={"space-between"}
-                    //paddingTop={{ base: 0, md: 8 }}
+                        paddingTop={{ base: 0, md: 8 }}
+                        paddingLeft={{ base: 2, md: 14 }}
+                        paddingRight={{ base: 2, md: 14 }}
                     >
                         <PageLink page_name={page_name}></PageLink>
                         <Flex gap={5} >
