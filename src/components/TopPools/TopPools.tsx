@@ -34,19 +34,19 @@ const TopPools: React.FC<TopPoolsProps> = ({ pools }) => {
         >
             <Thead>
                 <Tr>
-                    <Th>Pool</Th>
-                    <Th>Provider</Th>
-                    <Th isNumeric>TVL</Th>
-                    <Th isNumeric>APR</Th>
+                    <Th borderStyle={"hidden"} >Pool</Th>
+                    <Th borderStyle={"hidden"} >Provider</Th>
+                    <Th borderStyle={"hidden"} isNumeric>TVL</Th>
+                    <Th borderStyle={"hidden"} isNumeric>APR</Th>
                 </Tr>
             </Thead>
             <Tbody>
                 {pools.map((pool) => (
                     <Tr>
-                        <Td>{pool.name}</Td>
-                        <Td>{pool.origin}</Td>
-                        <Td isNumeric>{pool.tvl}</Td>
-                        <Td isNumeric>{pool.apr}</Td>
+                        <Td borderStyle={"hidden"} >{pool.name}</Td>
+                        <Td borderStyle={"hidden"} >{pool.origin}</Td>
+                        <Td borderStyle={"hidden"} isNumeric>{pool.tvl}</Td>
+                        <Td borderStyle={"hidden"} isNumeric>{pool.apr}</Td>
                     </Tr>
                 ))}
             </Tbody>

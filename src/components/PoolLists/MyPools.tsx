@@ -10,6 +10,8 @@ import {
     Th,
     Tbody,
     Td,
+    Button,
+    Center,
 } from '@chakra-ui/react'
 
 
@@ -27,13 +29,15 @@ export default function MyPools() {
                 fontWeight={"bold"}
                 color={"blue.900"}
                 textAlign={"center"}
+                paddingTop={2}
+                paddingBottom={2}
             >
                 MY POOLS
             </Text>
             <Table
                 rounded="md"
                 width={"100%"}
-                size={{ base: "sm", md: "md" }}
+                size={"sm"}
 
                 variant='striped'
                 colorScheme='blue'
@@ -46,18 +50,30 @@ export default function MyPools() {
                     </Tr>
                 </Thead>
                 <Tbody>
-                    <Tr>
-                        <Td>ETH/USD</Td>
-                        <Td isNumeric>$12.4M</Td>
-                        <Td isNumeric>20.4%</Td>
+                    <Tr borderStyle={"hidden"}>
+                        <Td fontSize={"13px"} >ETH/USD</Td>
+                        <Td fontSize={"13px"} isNumeric>$12.4M</Td>
+                        <Td fontSize={"13px"} isNumeric>20.4%</Td>
                     </Tr>
-                    <Tr>
-                        <Td>ETH/USD</Td>
-                        <Td isNumeric>$12.4M</Td>
-                        <Td isNumeric>20.4%</Td>
+                    <Tr borderStyle={"hidden"}>
+                        <Td fontSize={"13px"} >ETH/USD</Td>
+                        <Td fontSize={"13px"} isNumeric>$12.4M</Td>
+                        <Td fontSize={"13px"} isNumeric>20.4%</Td>
                     </Tr>
                 </Tbody>
             </Table>
+            <Center>
+                <Button
+                    fontFamily={"Plus Jakarta Sans, sans-serif"}
+                    colorScheme="twitter"
+                    size="sm"
+                    borderRadius={5}
+                    marginTop={3}
+                    marginBottom={2}
+                >
+                    Show More
+                </Button>
+            </Center>
         </Box>
     )
 }
