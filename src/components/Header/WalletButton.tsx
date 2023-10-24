@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useMemo } from 'react';
 
 import WalletService from '../../services/WalletService';
 
@@ -11,16 +11,16 @@ import { FaWallet } from 'react-icons/fa'
 import { GoSignOut } from "react-icons/go";
 
 
+
 function WalletButton() {
     const [connectText, setConnectText] = useState('Connect');
     const [connectIcon, setConnectIcon] = useState(<FaWallet />);
-    const walletService = new WalletService();
+    //const walletService = new WalletService();
+    const walletService = useMemo(() => new WalletService(), []);
 
     const handleClick = () => {
-        if (walletService.getWalletAddress() != null) {
+        if (walletService.isConnected()) {
             walletService.disconnectWallet();
-            //setConnectText('Connect');
-            //setConnectIcon(<FaWallet />);
         } else {
             walletService.connectWallet();
         }
@@ -28,16 +28,19 @@ function WalletButton() {
 
     // Register callbacks when the component is mounted
     useEffect(() => {
-        const handleConnect = (address: string) => {
-            if (address != null) {
-                setConnectText('Disconnect');
+        const handleConnect = () => {
+            if (walletService.isConnected()) {
+                setConnectText(walletService.getShortWalletAddress());
                 setConnectIcon(<GoSignOut />);
+                console.log('callback connected');
             }
         };
 
         const handleDisconnect = () => {
             setConnectText('Connect');
             setConnectIcon(<FaWallet />);
+
+            console.log('callback disconnected');
         };
 
         // Register the callbacks for connection changes
@@ -49,7 +52,7 @@ function WalletButton() {
             walletService.registerOnConnectCallback(() => { });
             walletService.registerOnDisconnectCallback(() => { });
         };
-    }, []);
+    }, [walletService]);
 
     return (
         <Stack direction='row' spacing={4}>
