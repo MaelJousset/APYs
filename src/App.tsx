@@ -15,7 +15,7 @@ import MyWalletPage from "./pages/MyWalletPage";
 import PageHeader from "./components/Header/PageHeader";
 
 function App() {
-  const [activePage, setActivePage] = useState('dashboard_page'); // Initialize activePage with a default value
+  const [activePage, setActivePage] = useState('Dashboard'); // Initialize activePage with a default value
 
   return (
     <ChakraProvider theme={theme}>

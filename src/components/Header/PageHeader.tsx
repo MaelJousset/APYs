@@ -51,6 +51,9 @@ const PageHeader: React.FC<PageHeaderProps> = ({ active_page }) => {
                         gap={{ base: 5, md: 0 }}
                         justifyContent={"space-between"}
                         paddingTop={3}
+                        paddingLeft={{ base: 4, md: 14 }}
+                        paddingRight={{ base: 4, md: 14 }}
+                        paddingBottom={{ base: 3, md: 0 }}
                     //paddingTop={{ base: 0, md: 8 }}
                     >
                         <Flex
