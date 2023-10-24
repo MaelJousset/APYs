@@ -3,8 +3,15 @@ import {
     Flex,
     Text,
     Heading,
-    Box,
+    Box
 } from '@chakra-ui/react'
+
+import Links from '../components/Links/Links'
+import EstimatedEarnings from '../components/Stats/EstimatedEarnings'
+import AllPools from '../components/PoolLists/AllPools'
+import MyPools from '../components/PoolLists/MyPools'
+import TopPools from '../components/PoolLists/TopPools'
+import TvlChart from '../components/Charts/TvlChart'
 
 
 export default function EkuboPage() {
@@ -21,7 +28,24 @@ export default function EkuboPage() {
             paddingRight={{ base: 3, md: 12 }}
             paddingTop={{ base: 2, md: 8 }}
         >
-
+            <Flex
+                flexDir={"row"}
+            >
+                <TvlChart></TvlChart>
+                <TopPools></TopPools>
+                <MyPools></MyPools>
+            </Flex>
+            <Flex
+                flexDir={"row"}
+            >
+                <AllPools></AllPools>
+                <Flex
+                    flexDir={"column"}
+                >
+                    <EstimatedEarnings></EstimatedEarnings>
+                    <Links></Links>
+                </Flex>
+            </Flex>
         </Flex>
     )
 }
