@@ -36,7 +36,6 @@ export default function EkuboPage() {
                 alignItems={"flex-start"}
             >
                 <TvlChart
-                    pool="Ekubo"
                     values={[
                         { x: new Date('2023-09-01'), y: 100 },
                         { x: new Date('2023-09-02'), y: 150 },

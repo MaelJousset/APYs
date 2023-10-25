@@ -17,13 +17,12 @@ import Chart from './Chart';
 import TVLValue from '../TVL/TVLValue';
 
 interface TvlChartProps {
-    pool: string;
     values: {
         x: Date;
         y: number;
     }[];
 }
-const TvlChart: React.FC<TvlChartProps> = ({ pool, values }) => {
+const TvlChart: React.FC<TvlChartProps> = ({ values }) => {
     return (
         <Box
             bgColor={"blue.50"}
@@ -43,10 +42,10 @@ const TvlChart: React.FC<TvlChartProps> = ({ pool, values }) => {
                 >
                     <Text
                         fontFamily={"Plus Jakarta Sans, sans-serif"}
-                        fontSize={"18px"}
-                        color={"blue.700"}
+                        fontSize={"24px"}
+                        color={"blue.800"}
                     >
-                        {pool}
+                        TVL
                     </Text>
                     <TVLValue values={values} />
                 </Flex>

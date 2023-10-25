@@ -36,7 +36,6 @@ export default function MySwapPage() {
                 alignItems={"flex-start"}
             >
                 <TvlChart
-                    pool="MySwap"
                     values={[
                         { x: new Date('2023-09-01'), y: 100 },
                         { x: new Date('2023-09-02'), y: 150 },
