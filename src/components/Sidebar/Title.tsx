@@ -1,5 +1,6 @@
 import React from "react";
 import {
+    Center,
     Flex,
     Heading,
     Image,
@@ -18,7 +19,7 @@ const Title: React.FC<TitleProps> = ({ logo, title }) => {
             alignItems={"center"}
             flexDirection={"row"}
             justifyContent={{ base: "center", md: "flex-start" }}
-            gap={{ base: 2, md: 3 }}
+            gap={{ base: 4, md: 3 }}
             w="100%"
 
         >
@@ -31,6 +32,8 @@ const Title: React.FC<TitleProps> = ({ logo, title }) => {
                 size={{ base: "sm", md: "md" }}
                 fontFamily={"Plus Jakarta Sans, sans-serif"}
                 display={"flex"}
+                textAlign={"center"}
+                verticalAlign={"center"}
             >
                 {title}
             </Heading>

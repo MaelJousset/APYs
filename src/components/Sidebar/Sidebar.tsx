@@ -14,6 +14,7 @@ import {
     useDisclosure,
     BoxProps,
     FlexProps,
+    Center,
 } from '@chakra-ui/react'
 import { FiMenu } from 'react-icons/fi'
 import { IoIosHome } from 'react-icons/io'
@@ -83,9 +84,17 @@ const SidebarContent = ({ onClose, setCurrentPage, ...rest }: SidebarProps) => {
             <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
                 <Title logo="/assets/APY_logo.png"
                     title="STARK VIEWER" />
-                <CloseButton display={{ base: 'flex', md: 'none' }} onClick={onClose} />
+                <CloseButton
+                    display={{ base: 'flex', md: 'none' }}
+                    onClick={onClose}
+                    color={"blue.700"}
+                    fontWeight='semibold'
+                    fontSize={"sm"}
+                />
             </Flex>
-            <Divider w="80%" />
+            <Center>
+                <Divider w="80%" />
+            </Center>
             <NavItem icon={IoIosHome} title="Dashboard" active={activePage === 'Dashboard'}
                 onClick={() => handleButtonClick('Dashboard')}
             />
@@ -117,19 +126,23 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             w="full"
             alignItems="center"
             bgColor={"blue.50"}
-            borderBottomWidth="1px"
-            borderBottomColor={useColorModeValue('gray.200', 'gray.700')}
+            //borderBottomWidth="1px"
+            //borderBottomColor={useColorModeValue('blue.200', 'blue.700')}
+            paddingRight={8}
             justifyContent="space-between"
             //gap={6}
             {...rest}>
-            <IconButton
-                variant="outline"
-                onClick={onOpen}
-                aria-label="open menu"
-                icon={<FiMenu />}
-            />
+
             <Title logo="/assets/APY_logo.png"
                 title="STARK VIEWER" />
+            <IconButton
+                variant="unstyled"
+                onClick={onOpen}
+                aria-label="open menu"
+                icon={<FiMenu size="xs" />}
+                color={"blue.700"}
+                size="xs"
+            />
         </Flex>
     )
 }
