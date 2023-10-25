@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 
 import {
     Chart as ChartJS,
@@ -11,7 +11,9 @@ import {
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
+import Chart from 'chart.js/auto';
 
+// Register the custom plugin before defining the component
 ChartJS.register(
     CategoryScale,
     LinearScale,
@@ -19,16 +21,45 @@ ChartJS.register(
     LineElement,
     Title,
     Tooltip,
-    Legend
+    Legend,
 );
 
 
 
-interface ChartProps {
+
+function calculateAverage(data: { x: Date; y: number }[]) {
+    const sum = data.reduce((total, point) => total + point.y, 0);
+    return sum / data.length;
+}
+
+// Function to draw the line for the average value
+const drawAverageLine = (chart: any) => {
+    if (!chart) return;
+    const ctx = chart.ctx;
+    const yAxis = chart.scales['y'];
+
+    const data = chart.data.datasets[0].data;
+    const sumY = data.reduce((sum: any, point: any) => sum + point, 0);
+    const averageY = sumY / data.length;
+
+    const yPosition = yAxis.getPixelForValue(averageY);
+
+    ctx.save();
+    ctx.strokeStyle = 'rgba(0, 0, 255, 0.5)';
+    ctx.setLineDash([5, 5]); // Dotted line style
+    ctx.beginPath();
+    ctx.moveTo(chart.chartArea.left, yPosition);
+    ctx.lineTo(chart.chartArea.right, yPosition);
+    ctx.stroke();
+    ctx.restore();
+};
+
+
+interface CustomChartProps {
     chartData: { x: Date; y: number }[],
 }
 
-const Chart: React.FC<ChartProps> = ({ chartData }) => {
+const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
 
     var months = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June",
         "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
@@ -40,6 +71,10 @@ const Chart: React.FC<ChartProps> = ({ chartData }) => {
         return month + ' ' + day;
     });
 
+    const maxValue = chartData.reduce((max, dataPoint) => (dataPoint.y > max ? dataPoint.y : max), chartData[0].y);
+    const minValue = chartData.reduce((min, dataPoint) => (dataPoint.y < min ? dataPoint.y : min), chartData[0].y);
+    const averageValue = chartData.reduce((sum, dataPoint) => sum + dataPoint.y, 0) / chartData.length;
+
     const data = {
         labels,
         datasets: [
@@ -48,6 +83,7 @@ const Chart: React.FC<ChartProps> = ({ chartData }) => {
                 borderColor: '#2C5282',
                 backgroundColor: '#2C5282',
                 tension: 0.2,
+                yAxisID: 'y-axis-0', // Specify the y-axis to use for this dataset
             },
         ],
     };
@@ -59,6 +95,9 @@ const Chart: React.FC<ChartProps> = ({ chartData }) => {
                 radius: 0
             }
         },
+        interaction: {
+            intersect: false,
+        },
         responsive: true,
         plugins: {
             legend: {
@@ -67,11 +106,10 @@ const Chart: React.FC<ChartProps> = ({ chartData }) => {
             title: {
                 display: false,
             },
-            plugins: {
-                tooltip: {
-                    mode: 'average',
+            averageLine: {
+                beforeDraw: (chart: any) => {
+                    drawAverageLine(chart);
                 },
-
             },
         },
         scales: {
@@ -92,9 +130,12 @@ const Chart: React.FC<ChartProps> = ({ chartData }) => {
             },
             y: {
                 display: false,
+                max: maxValue * 1.05,
+                min: minValue * 0.95,
             },
         }
     };
+
 
     return (
         <Line options={options} data={data} />
@@ -102,4 +143,4 @@ const Chart: React.FC<ChartProps> = ({ chartData }) => {
 }
 
 
-export default Chart;
+export default CustomChart;

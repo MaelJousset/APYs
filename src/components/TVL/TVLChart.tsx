@@ -33,6 +33,9 @@ const TVLChart: React.FC<TVLChartProps> = ({ chartData }) => {
     var months = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June",
         "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
 
+    const maxValue = chartData.reduce((max, dataPoint) => (dataPoint.y > max ? dataPoint.y : max), chartData[0].y);
+    const minValue = chartData.reduce((min, dataPoint) => (dataPoint.y < min ? dataPoint.y : min), chartData[0].y);
+
     const labels = chartData.map((point) => {
         const day = point.x.getDate().toString(); // Convert day to a string
         const month = months[point.x.getMonth()]; // Convert month to a string (adding 1 because months are 0-indexed)
@@ -74,6 +77,8 @@ const TVLChart: React.FC<TVLChartProps> = ({ chartData }) => {
             },
             y: {
                 display: false,
+                max: maxValue * 1.05,
+                min: minValue * 0.95,
             },
         }
     };

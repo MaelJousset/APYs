@@ -13,7 +13,7 @@ import {
 } from '@chakra-ui/react'
 
 //import TVLChart from '../TVL/TVLChart';
-import Chart from './Chart';
+import CustomChart from './Chart';
 import TVLValue from '../TVL/TVLValue';
 
 interface TvlChartProps {
@@ -49,7 +49,7 @@ const TvlChart: React.FC<TvlChartProps> = ({ values }) => {
                     </Text>
                     <TVLValue values={values} />
                 </Flex>
-                <Chart chartData={values} />
+                <CustomChart chartData={values} />
             </Flex>
         </Box>
     )
