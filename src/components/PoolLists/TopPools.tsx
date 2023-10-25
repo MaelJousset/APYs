@@ -1,8 +1,5 @@
-import React, { useState } from 'react'
 import {
-    Flex,
     Text,
-    Heading,
     Box,
     Table,
     Thead,
@@ -30,7 +27,7 @@ export default function TopPools() {
                 fontWeight={"bold"}
                 color={"blue.900"}
                 textAlign={"center"}
-                paddingTop={2}
+                paddingTop={3}
                 paddingBottom={2}
             >
                 TOP POOLS

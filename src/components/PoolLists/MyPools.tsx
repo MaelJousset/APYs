@@ -1,8 +1,5 @@
-import React, { useState } from 'react'
 import {
-    Flex,
     Text,
-    Heading,
     Box,
     Table,
     Thead,
@@ -12,6 +9,7 @@ import {
     Td,
     Button,
     Center,
+    Divider,
 } from '@chakra-ui/react'
 
 
@@ -29,11 +27,16 @@ export default function MyPools() {
                 fontWeight={"bold"}
                 color={"blue.900"}
                 textAlign={"center"}
-                paddingTop={2}
+                paddingTop={3}
                 paddingBottom={2}
             >
                 MY POOLS
             </Text>
+            <Divider
+                borderColor={"blue.800"}
+                borderBottomWidth={"2px"}
+                marginBottom={3}
+            />
             <Table
                 rounded="md"
                 width={"100%"}
@@ -69,7 +72,7 @@ export default function MyPools() {
                     variant='solid'
                     size="sm"
                     borderRadius={5}
-                    marginTop={3}
+                    marginTop={4}
                     marginBottom={2}
                 >
                     Show More
