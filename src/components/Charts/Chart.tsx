@@ -67,6 +67,12 @@ const Chart: React.FC<ChartProps> = ({ chartData }) => {
             title: {
                 display: false,
             },
+            plugins: {
+                tooltip: {
+                    mode: 'average',
+                },
+
+            },
         },
         scales: {
             x: {
@@ -76,6 +82,12 @@ const Chart: React.FC<ChartProps> = ({ chartData }) => {
                 },
                 border: {
                     color: '#4299E1',
+                },
+                ticks: {
+                    color: '#2C5282',
+                    font: {
+                        family: "Plus Jakarta Sans, sans-serif",
+                    },
                 },
             },
             y: {
