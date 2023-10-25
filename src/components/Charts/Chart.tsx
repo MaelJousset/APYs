@@ -70,7 +70,13 @@ const Chart: React.FC<ChartProps> = ({ chartData }) => {
         },
         scales: {
             x: {
-                display: false,
+                grid: {
+                    display: false,
+                    color: '#4299E1',
+                },
+                border: {
+                    color: '#4299E1',
+                },
             },
             y: {
                 display: false,
