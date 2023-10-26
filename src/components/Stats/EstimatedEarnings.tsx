@@ -12,6 +12,7 @@ import {
     Td,
     Button,
     Center,
+    Divider,
 } from '@chakra-ui/react'
 
 
@@ -21,7 +22,7 @@ export default function EstimatedEarnings() {
             bgColor={"blue.50"}
             borderRadius={"15px"}
             boxShadow='base'
-            w="100%"
+            w="95%"
         >
             <Text
                 fontFamily={"Plus Jakarta Sans, sans-serif"}
@@ -29,10 +30,26 @@ export default function EstimatedEarnings() {
                 fontWeight={"bold"}
                 color={"blue.900"}
                 textAlign={"center"}
+                paddingTop={3}
+                paddingBottom={2}
+            >
+                ESTIMATED EARNINGS
+            </Text>
+            <Divider
+                borderColor={"blue.800"}
+                borderBottomWidth={"2px"}
+                marginBottom={1}
+            />
+            <Text
+                fontFamily={"Plus Jakarta Sans, sans-serif"}
+                fontSize={"16px"}
+                fontWeight={"bold"}
+                color={"blue.800"}
+                textAlign={"center"}
                 paddingTop={2}
                 paddingBottom={2}
             >
-                ESTIMATED EARININGS
+                TOTAL : $116
             </Text>
             <Table
                 rounded="md"
@@ -44,21 +61,78 @@ export default function EstimatedEarnings() {
             >
                 <Thead>
                     <Tr>
-                        <Th>Pool</Th>
-                        <Th isNumeric>TVL</Th>
-                        <Th isNumeric>APR</Th>
+                        <Th
+                            paddingLeft={"4px"}
+                            paddingRight={"4px"}
+                        >
+                            Pool
+                        </Th>
+                        <Th
+                            paddingLeft={"4px"}
+                            paddingRight={"4px"}
+                            isNumeric
+                        >
+                            TVL
+                        </Th>
+                        <Th
+                            paddingLeft={"4px"}
+                            paddingRight={"4px"}
+                            isNumeric
+                        >
+                            APR
+                        </Th>
                     </Tr>
                 </Thead>
                 <Tbody>
                     <Tr borderStyle={"hidden"}>
-                        <Td fontSize={"13px"} >ETH/USD</Td>
-                        <Td fontSize={"13px"} isNumeric>$12.4M</Td>
-                        <Td fontSize={"13px"} isNumeric>20.4%</Td>
+                        <Td
+                            fontSize={"13px"}
+                            paddingLeft={"4px"}
+                            paddingRight={"4px"}
+                        >
+                            ETH/USD
+                        </Td>
+                        <Td
+                            fontSize={"13px"}
+                            paddingLeft={"4px"}
+                            paddingRight={"4px"}
+                            isNumeric
+                        >
+                            $12.4M
+                        </Td>
+                        <Td
+                            fontSize={"13px"}
+                            paddingLeft={"4px"}
+                            paddingRight={"4px"}
+                            isNumeric
+                        >
+                            20.4%
+                        </Td>
                     </Tr>
                     <Tr borderStyle={"hidden"}>
-                        <Td fontSize={"13px"} >ETH/USD</Td>
-                        <Td fontSize={"13px"} isNumeric>$12.4M</Td>
-                        <Td fontSize={"13px"} isNumeric>20.4%</Td>
+                        <Td
+                            fontSize={"13px"}
+                            paddingLeft={"4px"}
+                            paddingRight={"4px"}
+                        >
+                            ETH/USD
+                        </Td>
+                        <Td
+                            fontSize={"13px"}
+                            paddingLeft={"4px"}
+                            paddingRight={"4px"}
+                            isNumeric
+                        >
+                            $12.4M
+                        </Td>
+                        <Td
+                            fontSize={"13px"}
+                            paddingLeft={"4px"}
+                            paddingRight={"4px"}
+                            isNumeric
+                        >
+                            20.4%
+                        </Td>
                     </Tr>
                 </Tbody>
             </Table>
@@ -69,7 +143,7 @@ export default function EstimatedEarnings() {
                     variant='solid'
                     size="sm"
                     borderRadius={5}
-                    marginTop={3}
+                    marginTop={4}
                     marginBottom={2}
                 >
                     Show More

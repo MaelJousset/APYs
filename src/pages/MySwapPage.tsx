@@ -53,6 +53,7 @@ export default function MySwapPage() {
                 <Flex
                     flexDir={"column"}
                     w="20%"
+                    alignItems={"flex-end"}
                 >
                     <EstimatedEarnings></EstimatedEarnings>
                     <Links></Links>

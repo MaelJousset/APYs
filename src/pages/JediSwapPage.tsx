@@ -48,6 +48,7 @@ export default function JediSwapPage() {
             <Flex
                 flexDir={"row"}
                 w="100%"
+                alignItems={"center"}
             >
                 <AllPools></AllPools>
                 <Flex

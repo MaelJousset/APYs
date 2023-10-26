@@ -53,6 +53,7 @@ export default function EkuboPage() {
                 <Flex
                     flexDir={"column"}
                     w="20%"
+                    alignItems={"center"}
                 >
                     <EstimatedEarnings></EstimatedEarnings>
                     <Links></Links>
