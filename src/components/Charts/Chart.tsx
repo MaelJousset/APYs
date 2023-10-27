@@ -28,19 +28,28 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
             height={300}
             data={chartData}
             margin={{
-                top: 5,
-                right: 30,
-                left: 20,
-                bottom: 5,
+                top: 0,
+                right: 0,
+                left: 0,
+                bottom: 0,
             }}
         >
             <CartesianGrid strokeDasharray="3 3" />
             <XAxis dataKey="x"
             />
             <YAxis />
-            <Tooltip />
+            <Tooltip
+                position={{ y: 0 }}
+            />
             <Legend />
-            <Line type="monotone" dataKey="y" stroke="#82ca9d" />
+            <Line
+                type="monotone"
+                dataKey="y"
+                stroke="#2C5282"
+                strokeWidth={2}
+                legendType="none"
+                dot={false}
+            />
         </LineChart>
         //</ResponsiveContainer>
     );
