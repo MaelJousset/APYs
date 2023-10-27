@@ -29,10 +29,13 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
                 bottom: 0,
             }}
         >
-            <CartesianGrid strokeDasharray="3 3" />
-            <XAxis dataKey="x"
+            {/*<CartesianGrid strokeDasharray="3 3" />*/}
+            <XAxis
+                dataKey="x"
             />
-            <YAxis />
+            <YAxis
+                hide={true}
+            />
             <Tooltip
                 position={{ y: 0 }}
             />
