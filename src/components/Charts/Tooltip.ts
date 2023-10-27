@@ -1,11 +1,16 @@
 import { Chart, Tooltip, TooltipPositionerFunction, ChartType, Point } from 'chart.js';
 
 // Register the necessary components
-Chart.register(Tooltip);
+//Chart.register(Tooltip);
 
-// Define your custom positioner
-// Define your custom positioner
-Tooltip.positioners.top = function (elements: any, eventPosition: any) {
+/**
+ * Custom positioner
+ * @function Tooltip.positioners.myCustomPositioner
+ * @param elements {Chart.Element[]} the tooltip elements
+ * @param eventPosition {Point} the position of the event in canvas coordinates
+ * @returns {TooltipPosition} the tooltip position
+ */
+Tooltip.positioners.top = function (elements: any, eventPosition: Point) {
     //if (!elements.length) return false;
 
     const { chartArea: { top }, scales: { x, y } } = this.chart;
@@ -23,8 +28,8 @@ Tooltip.positioners.top = function (elements: any, eventPosition: any) {
     return {
         x: value_x,
         y: top,
-        //xAlign: 'center',
-        //yAlign: 'top',
+        xAlign: 'center',
+        yAlign: 'bottom',
     };
 };
 

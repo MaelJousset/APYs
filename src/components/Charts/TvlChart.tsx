@@ -23,6 +23,16 @@ interface TvlChartProps {
     }[];
 }
 const TvlChart: React.FC<TvlChartProps> = ({ values }) => {
+
+    var months = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June",
+        "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
+
+    const convertedData: { x: string; y: number }[] = values.map((item) => ({
+        x: `${months[item.x.getMonth()]} ${item.x.getDate()}`,
+        y: item.y,
+    }));
+
+
     return (
         <Box
             bgColor={"blue.50"}
@@ -49,7 +59,7 @@ const TvlChart: React.FC<TvlChartProps> = ({ values }) => {
                     </Text>
                     <TVLValue values={values} />
                 </Flex>
-                <CustomChart chartData={values} />
+                <CustomChart chartData={convertedData} />
             </Flex>
         </Box>
     )
