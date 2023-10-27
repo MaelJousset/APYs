@@ -1,14 +1,9 @@
 import React from "react";
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
 
 import './Tooltip'
 
-
-function calculateAverage(data: { x: Date; y: number }[]) {
-    const sum = data.reduce((total, point) => total + point.y, 0);
-    return sum / data.length;
-}
 
 interface CustomChartProps {
     chartData: { x: string; y: number }[],
@@ -50,6 +45,7 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
                 legendType="none"
                 dot={false}
             />
+            <ReferenceLine y={averageValue} label="Average" stroke="#90CDF4" strokeDasharray="3 3" />
         </LineChart>
         //</ResponsiveContainer>
     );
