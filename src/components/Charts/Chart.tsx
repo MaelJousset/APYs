@@ -3,7 +3,6 @@ import React, { useEffect } from "react";
 import {
     Chart as ChartJS,
     CategoryScale,
-    LinearScale,
     PointElement,
     LineElement,
     Title,
@@ -11,12 +10,12 @@ import {
     Legend,
 } from 'chart.js';
 import { Line } from 'react-chartjs-2';
-import Chart from 'chart.js/auto';
 
+//import { Tooltip.positioners.top } from './Tooltip.ts'
+import './Tooltip.ts'
 // Register the custom plugin before defining the component
 ChartJS.register(
     CategoryScale,
-    LinearScale,
     PointElement,
     LineElement,
     Title,
@@ -110,6 +109,9 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
                 beforeDraw: (chart: any) => {
                     drawAverageLine(chart);
                 },
+            },
+            tooltip: {
+                position: 'top', // Use 'top' as the position
             },
         },
         scales: {
