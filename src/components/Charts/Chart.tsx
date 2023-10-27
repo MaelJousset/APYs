@@ -110,9 +110,10 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
                     drawAverageLine(chart);
                 },
             },
-            tooltip: {
-                position: 'top', // Use 'top' as the position
-            },
+
+            //tooltip: {
+            //    position: 'top', // Use 'top' as the position
+            //},
         },
         scales: {
             x: {
@@ -135,7 +136,10 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
                 max: maxValue * 1.05,
                 min: minValue * 0.95,
             },
-        }
+        },
+        tooltip: {
+            position: 'top', // Use 'top' as the position
+        },
     };
 
 
