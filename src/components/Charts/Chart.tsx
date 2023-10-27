@@ -34,6 +34,7 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
             />
             <YAxis
                 hide={true}
+                domain={[minValue * 0.95, maxValue * 1.05]}
             />
             <Tooltip
                 position={{ y: 0 }}
