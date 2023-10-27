@@ -23,13 +23,12 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
             height={300}
             data={chartData}
             margin={{
-                top: 0,
-                right: 0,
-                left: 0,
-                bottom: 0,
+                top: 2,
+                right: 2,
+                left: 2,
+                bottom: 2,
             }}
         >
-            {/*<CartesianGrid strokeDasharray="3 3" />*/}
             <XAxis
                 dataKey="x"
             />
@@ -48,6 +47,8 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
                 legendType="none"
                 dot={false}
             />
+            <ReferenceLine y={maxValue} label="Max" stroke="#90CDF4" strokeDasharray="3 3" />
+            <ReferenceLine y={minValue} label="Min" stroke="#90CDF4" strokeDasharray="3 3" />
             <ReferenceLine y={averageValue} label="Average" stroke="#90CDF4" strokeDasharray="3 3" />
         </LineChart>
         //</ResponsiveContainer>
