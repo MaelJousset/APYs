@@ -44,6 +44,7 @@ const TvlChart: React.FC<TvlChartProps> = ({ values }) => {
                 flexDir={"column"}
                 gap={1}
                 padding={5}
+                alignItems={"center"}
             >
                 <Flex
                     flexDir={"row"}
