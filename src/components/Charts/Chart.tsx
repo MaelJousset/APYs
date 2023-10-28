@@ -1,6 +1,6 @@
 import React from "react";
 
-import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine } from 'recharts';
+import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Label } from 'recharts';
 
 import './Tooltip'
 
@@ -48,9 +48,15 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
                 legendType="none"
                 dot={false}
             />
-            <ReferenceLine y={maxValue} label="Max" stroke="#90CDF4" strokeDasharray="3 3" />
-            <ReferenceLine y={minValue} label="Min" stroke="#90CDF4" strokeDasharray="3 3" />
-            <ReferenceLine y={averageValue} label="Average" stroke="#90CDF4" strokeDasharray="3 3" />
+            <ReferenceLine y={maxValue} stroke="#90CDF4" strokeDasharray="3 3" >
+                <Label value="Max" position={"insideBottomLeft"} />
+            </ReferenceLine>
+            <ReferenceLine y={minValue} stroke="#90CDF4" strokeDasharray="3 3" >
+                <Label value="Min" position={"insideBottomLeft"} />
+            </ReferenceLine>
+            <ReferenceLine y={averageValue} stroke="#90CDF4" strokeDasharray="3 3" >
+                <Label value="Average" position={"insideBottomLeft"} />
+            </ReferenceLine>
         </LineChart>
         //</ResponsiveContainer>
     );
