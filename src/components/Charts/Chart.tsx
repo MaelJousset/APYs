@@ -2,7 +2,7 @@ import React from "react";
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Label } from 'recharts';
 
-import './Tooltip'
+import CustomTooltip from "./Tooltip";
 
 
 interface CustomChartProps {
@@ -36,6 +36,10 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
                 hide={true}
                 domain={[minValue * 0.95, maxValue * 1.05]}
             />
+            {/*<Tooltip
+                content={<CustomTooltip active={false} payload={undefined} label={undefined} />}
+                position={{ y: 0 }}
+        />*/}
             <Tooltip
                 position={{ y: 0 }}
             />
