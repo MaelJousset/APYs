@@ -47,7 +47,7 @@ export default function Links() {
                 gap={2}
             >
                 <LinkBox
-                    bgColor={"blue.100"}
+                    bgColor={"whiteAlpha.700"}
                     w="90%"
                     borderRadius={8}
                     paddingTop={3}
@@ -60,7 +60,7 @@ export default function Links() {
                         alignItems={"center"}
                         justifyContent={"flex-start"}
                         gap={5}
-                        paddingLeft={5}
+                        paddingLeft={10}
                     >
                         <Image
                             src='x_logo.png'
@@ -68,14 +68,14 @@ export default function Links() {
                             w={7}
                             fit="contain"
                         />
-                        <LinkOverlay href='https://twitter.com/mySwapxyz' isExternal>
+                        <LinkOverlay href='https://twitter.com/mySwapxyz' isExternal color={"blue.500"}>
                             Twitter
                         </LinkOverlay>
                     </Flex>
                 </LinkBox>
 
                 <LinkBox
-                    bgColor={"blue.100"}
+                    bgColor={"whiteAlpha.700"}
                     w="90%"
                     borderRadius={8}
                     paddingTop={3}
@@ -88,7 +88,7 @@ export default function Links() {
                         alignItems={"center"}
                         justifyContent={"flex-start"}
                         gap={5}
-                        paddingLeft={5}
+                        paddingLeft={10}
                     >
                         <Image
                             src='discord.png'
@@ -96,7 +96,7 @@ export default function Links() {
                             w={7}
                             fit="contain"
                         />
-                        <LinkOverlay href='https://discord.com/invite/gbxgWHzqE4' isExternal>
+                        <LinkOverlay href='https://discord.com/invite/gbxgWHzqE4' isExternal color={"blue.500"}>
                             Discord
                         </LinkOverlay>
                     </Flex>
