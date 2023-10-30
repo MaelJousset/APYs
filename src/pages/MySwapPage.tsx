@@ -54,6 +54,7 @@ export default function MySwapPage() {
                     flexDir={"column"}
                     w="20%"
                     alignItems={"flex-end"}
+                    gap={10}
                 >
                     <EstimatedEarnings></EstimatedEarnings>
                     <Links></Links>
