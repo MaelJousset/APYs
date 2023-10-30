@@ -65,6 +65,8 @@ export default function Links() {
                         <Image
                             src='x_logo.png'
                             h={5}
+                            w={7}
+                            fit="contain"
                         />
                         <LinkOverlay href='https://twitter.com/mySwapxyz' isExternal>
                             Twitter
@@ -91,6 +93,8 @@ export default function Links() {
                         <Image
                             src='discord.png'
                             h={5}
+                            w={7}
+                            fit="contain"
                         />
                         <LinkOverlay href='https://discord.com/invite/gbxgWHzqE4' isExternal>
                             Discord
