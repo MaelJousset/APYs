@@ -12,6 +12,7 @@ import {
     Td,
     Button,
     Center,
+    Divider,
 } from '@chakra-ui/react'
 
 
@@ -29,36 +30,53 @@ export default function AllPools() {
                 fontWeight={"bold"}
                 color={"blue.900"}
                 textAlign={"center"}
-                paddingTop={2}
-                paddingBottom={2}
+                paddingTop={4}
+                paddingBottom={3}
             >
                 ALL THE POOLS
             </Text>
+            <Divider
+                borderColor={"blue.800"}
+                borderBottomWidth={"2px"}
+                marginBottom={4}
+            />
             <Table
                 rounded="md"
                 width={"100%"}
-                size={"sm"}
+                size={"md"}
                 variant='striped'
                 colorScheme='blue'
                 fontFamily={"Plus Jakarta Sans, sans-serif"}
             >
                 <Thead>
                     <Tr>
-                        <Th>Pool</Th>
-                        <Th isNumeric>TVL</Th>
-                        <Th isNumeric>APR</Th>
+                        <Th fontSize={"14px"}>Pool</Th>
+                        <Th fontSize={"14px"} isNumeric>TVL</Th>
+                        <Th fontSize={"14px"} isNumeric>Vol (24h)</Th>
+                        <Th fontSize={"14px"} isNumeric>Vol (7d)</Th>
+                        <Th fontSize={"14px"} isNumeric>Fees (%)</Th>
+                        <Th fontSize={"14px"} isNumeric>Fees (24h)</Th>
+                        <Th fontSize={"14px"} isNumeric>APR/APY</Th>
                     </Tr>
                 </Thead>
                 <Tbody>
                     <Tr borderStyle={"hidden"}>
-                        <Td fontSize={"13px"} >ETH/USD</Td>
-                        <Td fontSize={"13px"} isNumeric>$12.4M</Td>
-                        <Td fontSize={"13px"} isNumeric>20.4%</Td>
+                        <Td >ETH/USD</Td>
+                        <Td isNumeric>$1.4M</Td>
+                        <Td isNumeric>$4.9M</Td>
+                        <Td isNumeric>0.05%</Td>
+                        <Td isNumeric>$1.5K</Td>
+                        <Td isNumeric>$12.4M</Td>
+                        <Td isNumeric>20.4%</Td>
                     </Tr>
                     <Tr borderStyle={"hidden"}>
-                        <Td fontSize={"13px"} >ETH/USD</Td>
-                        <Td fontSize={"13px"} isNumeric>$12.4M</Td>
-                        <Td fontSize={"13px"} isNumeric>20.4%</Td>
+                        <Td >ETH/USD</Td>
+                        <Td isNumeric>$1.4M</Td>
+                        <Td isNumeric>$4.9M</Td>
+                        <Td isNumeric>0.05%</Td>
+                        <Td isNumeric>$1.5K</Td>
+                        <Td isNumeric>$12.4M</Td>
+                        <Td isNumeric>20.4%</Td>
                     </Tr>
                 </Tbody>
             </Table>
