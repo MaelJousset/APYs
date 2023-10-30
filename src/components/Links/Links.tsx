@@ -45,6 +45,7 @@ export default function Links() {
                 alignItems={"center"}
                 justifyContent={"space-evenly"}
                 gap={2}
+                paddingBottom={4}
             >
                 <LinkBox
                     bgColor={"whiteAlpha.700"}
@@ -63,7 +64,34 @@ export default function Links() {
                         paddingLeft={10}
                     >
                         <Image
-                            src='x_logo.png'
+                            src='assets/myswap.png'
+                            h={5}
+                            w={7}
+                            fit="contain"
+                        />
+                        <LinkOverlay href='https://www.myswap.xyz/' isExternal color={"blue.500"}>
+                            Website
+                        </LinkOverlay>
+                    </Flex>
+                </LinkBox>
+                <LinkBox
+                    bgColor={"whiteAlpha.700"}
+                    w="90%"
+                    borderRadius={8}
+                    paddingTop={3}
+                    paddingBottom={3}
+                    shadow='base'
+                >
+                    <Flex
+                        w="100%"
+                        flexDir={"row"}
+                        alignItems={"center"}
+                        justifyContent={"flex-start"}
+                        gap={5}
+                        paddingLeft={10}
+                    >
+                        <Image
+                            src='assets/x_logo.png'
                             h={5}
                             w={7}
                             fit="contain"
@@ -91,7 +119,7 @@ export default function Links() {
                         paddingLeft={10}
                     >
                         <Image
-                            src='discord.png'
+                            src='assets/discord.png'
                             h={5}
                             w={7}
                             fit="contain"
@@ -104,7 +132,7 @@ export default function Links() {
 
 
             </Flex>
-            <Center>
+            {/* <Center>
                 <Button
                     fontFamily={"Plus Jakarta Sans, sans-serif"}
                     colorScheme='blue'
@@ -116,7 +144,7 @@ export default function Links() {
                 >
                     Show More
                 </Button>
-            </Center>
+            </Center> */}
 
         </Box>
     )
