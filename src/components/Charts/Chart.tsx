@@ -2,7 +2,7 @@ import React from "react";
 
 import { LineChart, Line, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, ReferenceLine, Label } from 'recharts';
 
-import CustomTooltip from "./Tooltip";
+// import CustomTooltip from "./Tooltip";
 
 
 interface CustomChartProps {
