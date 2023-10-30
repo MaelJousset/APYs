@@ -37,7 +37,7 @@ export default function Links() {
             <Divider
                 borderColor={"blue.800"}
                 borderBottomWidth={"2px"}
-                marginBottom={1}
+                marginBottom={3}
             />
             <Flex
                 flexDir='column'
@@ -47,18 +47,24 @@ export default function Links() {
                 gap={2}
             >
                 <LinkBox
-                    bgColor={"gray.50"}
+                    bgColor={"blue.100"}
                     w="90%"
-                    alignItems={"center"}
-                    justifyContent={"space-evenly"}
+                    borderRadius={8}
+                    paddingTop={3}
+                    paddingBottom={3}
+                    shadow='base'
                 >
                     <Flex
                         w="100%"
                         flexDir={"row"}
+                        alignItems={"center"}
+                        justifyContent={"flex-start"}
+                        gap={5}
+                        paddingLeft={5}
                     >
                         <Image
                             src='x_logo.png'
-                            h={6}
+                            h={5}
                         />
                         <LinkOverlay href='https://twitter.com/mySwapxyz' isExternal>
                             Twitter
@@ -67,19 +73,27 @@ export default function Links() {
                 </LinkBox>
 
                 <LinkBox
-                    bgColor={"gray.50"}
+                    bgColor={"blue.100"}
                     w="90%"
+                    borderRadius={8}
+                    paddingTop={3}
+                    paddingBottom={3}
+                    shadow='base'
                 >
                     <Flex
                         w="100%"
                         flexDir={"row"}
+                        alignItems={"center"}
+                        justifyContent={"flex-start"}
+                        gap={5}
+                        paddingLeft={5}
                     >
                         <Image
-                            src='x_logo.png'
-                            h={6}
+                            src='discord.png'
+                            h={5}
                         />
-                        <LinkOverlay href='https://twitter.com/mySwapxyz' isExternal>
-                            Twitter
+                        <LinkOverlay href='https://discord.com/invite/gbxgWHzqE4' isExternal>
+                            Discord
                         </LinkOverlay>
                     </Flex>
                 </LinkBox>
