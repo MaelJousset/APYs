@@ -65,9 +65,9 @@ export default function Links() {
                     >
                         <Image
                             src='assets/myswap.png'
-                            h={5}
+                            h={7}
                             w={7}
-                            fit="contain"
+                            fit="cover"
                         />
                         <LinkOverlay href='https://www.myswap.xyz/' isExternal color={"blue.500"}>
                             Website
@@ -129,22 +129,35 @@ export default function Links() {
                         </LinkOverlay>
                     </Flex>
                 </LinkBox>
-
+                <LinkBox
+                    bgColor={"whiteAlpha.700"}
+                    w="90%"
+                    borderRadius={8}
+                    paddingTop={3}
+                    paddingBottom={3}
+                    shadow='base'
+                >
+                    <Flex
+                        w="100%"
+                        flexDir={"row"}
+                        alignItems={"center"}
+                        justifyContent={"flex-start"}
+                        gap={5}
+                        paddingLeft={10}
+                    >
+                        <Image
+                            src='assets/Telegram.png'
+                            h={7}
+                            w={7}
+                            fit="cover"
+                        />
+                        <LinkOverlay href='https://t.me/mySwapxyz' isExternal color={"blue.500"}>
+                            Telegram
+                        </LinkOverlay>
+                    </Flex>
+                </LinkBox>
 
             </Flex>
-            {/* <Center>
-                <Button
-                    fontFamily={"Plus Jakarta Sans, sans-serif"}
-                    colorScheme='blue'
-                    variant='solid'
-                    size="sm"
-                    borderRadius={5}
-                    marginTop={4}
-                    marginBottom={2}
-                >
-                    Show More
-                </Button>
-            </Center> */}
 
         </Box>
     )
