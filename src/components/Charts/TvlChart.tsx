@@ -43,13 +43,16 @@ const TvlChart: React.FC<TvlChartProps> = ({ values }) => {
             <Flex
                 flexDir={"column"}
                 gap={1}
-                padding={5}
+                // padding={5}
                 alignItems={"center"}
             >
                 <Flex
                     flexDir={"row"}
                     justifyContent={"space-between"}
                     width={"100%"}
+                    paddingTop={5}
+                    paddingLeft={5}
+                    paddingRight={5}
                 >
                     <Text
                         fontFamily={"Plus Jakarta Sans, sans-serif"}
