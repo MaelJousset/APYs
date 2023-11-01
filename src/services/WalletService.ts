@@ -1,11 +1,14 @@
 import { connect, disconnect } from 'starknetkit'
-import { StarknetIdNavigator } from "starknetid.js";
-import { useStarkName } from '@starknet-react/core';
+import { Provider, constants } from "starknet";
+// import { StarknetIdNavigator } from "starknetid.js";
+// import { useStarkName } from '@starknet-react/core';
 
 
 class WalletService {
     private walletAddress: string | null = null;
     private isconnected: boolean = false;
+    private provider: Provider = new Provider(undefined);
+    private chainId: any = constants.StarknetChainId.SN_MAIN;
 
     // Callback functions for when connected or disconnected
     private onConnectCallback: ((address: string) => void) | null = null;
@@ -22,6 +25,8 @@ class WalletService {
             this.walletAddress = connection.selectedAddress;
             this.isconnected = connection.isConnected;
             this.onConnectCallback?.(this.walletAddress); // Call the connect callback
+            this.provider = connection.provider;
+            this.chainId = connection.chainId;
         }
     }
 
@@ -30,8 +35,9 @@ class WalletService {
 
         this.walletAddress = null;
         this.isconnected = false;
+        this.provider = new Provider(undefined);
+        this.chainId = null;
         this.onDisconnectCallback?.(); // Call the disconnect callback
-        console.log("disconnected");
     }
 
     // Callback registration functions
@@ -60,10 +66,12 @@ class WalletService {
         return this.isconnected;
     }
 
-    async getStarknetId() {
-        const address =
-            "0x061b6c0a78f9edf13cea17b50719f3344533fadd470b8cb29c2b4318014f52d3";
-        return useStarkName({ address });
+    getProvider() {
+        return this.provider;
+    }
+
+    getChainId() {
+        return this.chainId;
     }
 }
 

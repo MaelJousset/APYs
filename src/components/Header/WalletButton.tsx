@@ -11,6 +11,16 @@ import { FaWallet } from 'react-icons/fa'
 import { GoSignOut } from "react-icons/go";
 
 
+import { useProvider, useNetwork, useAccount } from "@starknet-react/core";
+import { StarknetIdNavigator } from "starknetid.js";
+import { Provider, constants } from "starknet";
+
+const provider = new Provider();
+const starknetIdNavigator = new StarknetIdNavigator(
+    provider,
+    constants.StarknetChainId.SN_MAIN
+);
+
 
 function WalletButton() {
     const [connectText, setConnectText] = useState('Connect');
@@ -26,11 +36,28 @@ function WalletButton() {
         }
     };
 
+
     // Register callbacks when the component is mounted
     useEffect(() => {
-        const handleConnect = () => {
+        const handleConnect = async () => {
             if (walletService.isConnected()) {
-                setConnectText(walletService.getShortWalletAddress());
+                // setConnectText(walletService.getShortWalletAddress());
+                const address = walletService.getWalletAddress();
+                if (address) {
+                    const { provider } = useProvider();
+                    const { chain } = useNetwork();
+                    const { address } = useAccount();
+                    const starknetIdNavigator = new StarknetIdNavigator(
+                        provider,
+                        chain?.id as constants.StarknetChainId
+                    );
+                    const starkname = await starknetIdNavigator.getStarkName(address ?? "");
+                    setConnectText(starkname);
+                    // if (result.isLoading) setConnectText('Loading...');
+                    // if (result.isError) setConnectText('Error fetching name...');
+                    // if (result.data) setConnectText(result.data);
+                }
+
                 setConnectIcon(<GoSignOut />);
                 console.log('callback connected');
             }
