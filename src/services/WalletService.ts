@@ -1,4 +1,6 @@
 import { connect, disconnect } from 'starknetkit'
+import { StarknetIdNavigator } from "starknetid.js";
+import { useStarkName } from '@starknet-react/core';
 
 
 class WalletService {
@@ -56,6 +58,12 @@ class WalletService {
 
     isConnected() {
         return this.isconnected;
+    }
+
+    async getStarknetId() {
+        const address =
+            "0x061b6c0a78f9edf13cea17b50719f3344533fadd470b8cb29c2b4318014f52d3";
+        return useStarkName({ address });
     }
 }
 
