@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useMemo } from 'react';
+import { useState, useEffect, useMemo } from 'react';
 
 import WalletService from '../../services/WalletService';
 
@@ -10,16 +10,9 @@ import {
 import { FaWallet } from 'react-icons/fa'
 import { GoSignOut } from "react-icons/go";
 
-
-import { useProvider, useNetwork, useAccount } from "@starknet-react/core";
-
-import { StarknetIdNavigator } from "starknetid.js";
-import { constants } from "starknet";
 import { useStarkName } from "@starknet-react/core";
-import { connect } from 'http2';
 
 function WalletButton() {
-    const [connectText, setConnectText] = useState('Connect');
     const [connectIcon, setConnectIcon] = useState(<FaWallet />);
     const [connected, setConnected] = useState(false);
 
@@ -27,7 +20,7 @@ function WalletButton() {
 
     const temp_addr = walletService.getWalletAddress();
     const address = temp_addr ? temp_addr : "";
-    const { data, isLoading, isError } = useStarkName({ address });
+    const { data } = useStarkName({ address });
 
 
 
@@ -43,14 +36,12 @@ function WalletButton() {
 
         if (walletService.isConnected()) {
             setConnected(true);
-            setConnectText(walletService.getShortWalletAddress());
             setConnectIcon(<GoSignOut />);
         }
     };
 
     const handleDisconnect = () => {
         setConnected(false);
-        setConnectText('Connect');
         setConnectIcon(<FaWallet />);
     };
 
@@ -78,9 +69,8 @@ function WalletButton() {
                 size={{ base: 'sm', md: 'md' }}
             >
                 {!connected ?
-                    connectText :
-                    isLoading ? "Loading..." :
-                        data ? data : connectText}
+                    "Connect" :
+                    data ? data : walletService.getShortWalletAddress()}
             </Button>
         </Stack>
     );
