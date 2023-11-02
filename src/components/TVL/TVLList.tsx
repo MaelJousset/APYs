@@ -1,4 +1,4 @@
-import TVLBox from "./TVLBox";
+import DashboardChart from "../Charts/DashboardChart";
 
 import {
     Box,
@@ -36,9 +36,9 @@ function TVLList() {
                     flexDir={{ base: "column", md: "row" }}
                     alignItems={"center"}
                     gap={{ base: 5, md: 25 }}
-
+                    justifyContent={"space-between"}
                 >
-                    <TVLBox
+                    <DashboardChart
                         pool="MySwap"
                         values={[
                             { x: new Date('2023-09-01'), y: 100 },
@@ -46,7 +46,7 @@ function TVLList() {
                             { x: new Date('2023-09-03'), y: 100 },
                         ]}
                     />
-                    <TVLBox
+                    <DashboardChart
                         pool="JediSwap"
                         values={[
                             { x: new Date('2023-09-01'), y: 100 },
@@ -54,7 +54,7 @@ function TVLList() {
                             { x: new Date('2023-09-03'), y: 100 },
                         ]}
                     />
-                    <TVLBox
+                    <DashboardChart
                         pool="Ekubo"
                         values={[
                             { x: new Date('2023-09-01'), y: 100 },

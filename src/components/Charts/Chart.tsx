@@ -8,11 +8,14 @@ import { Chart } from "chart.js";
 
 
 interface CustomChartProps {
+    isSimple?: boolean;
+    width?: number;
+    height?: number;
     chartData: { x: string; y: number }[],
 }
 
 
-const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
+const CustomChart: React.FC<CustomChartProps> = ({ isSimple, width, height, chartData }) => {
 
     const maxValue = chartData.reduce((max, dataPoint) => (dataPoint.y > max ? dataPoint.y : max), chartData[0].y);
     const minValue = chartData.reduce((min, dataPoint) => (dataPoint.y < min ? dataPoint.y : min), chartData[0].y);
@@ -21,8 +24,8 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
     return (
         //<ResponsiveContainer width="100%" height="100%">
         <LineChart
-            width={500}
-            height={300}
+            width={width}
+            height={height}
             data={chartData}
             margin={{
                 top: 2,
@@ -32,20 +35,25 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
             }}
         >
             <XAxis
+                hide={isSimple ? true : false}
                 dataKey="x"
             />
             <YAxis
                 hide={true}
                 domain={[minValue * 0.95, maxValue * 1.05]}
             />
-            <Tooltip
-                // content={<CustomTooltip active={Tooltip.defaultProps.active} payload={[{ price: 42, date: 'Some Data' }]} label={Tooltip.name} />}
-                position={{ y: 0 }}
-                cursor={{ fill: "transparent" }}
-                offset={-10}
-                allowEscapeViewBox={{ x: true, y: true }}
-            />
-            <Legend />
+            {isSimple ? null :
+                <Tooltip
+                    // content={<CustomTooltip active={Tooltip.defaultProps.active} payload={[{ price: 42, date: 'Some Data' }]} label={Tooltip.name} />}
+                    position={{ y: 0 }}
+                    cursor={{ fill: "transparent" }}
+                    offset={-10}
+                    allowEscapeViewBox={{ x: true, y: true }}
+                />
+            }
+            {isSimple ? null :
+                <Legend />
+            }
             <Line
                 type="monotone"
                 dataKey="y"
@@ -54,15 +62,21 @@ const CustomChart: React.FC<CustomChartProps> = ({ chartData }) => {
                 legendType="none"
                 dot={false}
             />
-            <ReferenceLine y={maxValue} stroke="#90CDF4" strokeDasharray="3 3" >
-                <Label value="Max" position={"insideBottomLeft"} />
-            </ReferenceLine>
-            <ReferenceLine y={minValue} stroke="#90CDF4" strokeDasharray="3 3" >
-                <Label value="Min" position={"insideBottomLeft"} />
-            </ReferenceLine>
-            <ReferenceLine y={averageValue} stroke="#90CDF4" strokeDasharray="3 3" >
-                <Label value="Average" position={"insideBottomLeft"} />
-            </ReferenceLine>
+            {isSimple ? null :
+                <ReferenceLine y={maxValue} stroke="#90CDF4" strokeDasharray="3 3" >
+                    <Label value="Max" position={"insideBottomLeft"} />
+                </ReferenceLine>
+            }
+            {isSimple ? null :
+                <ReferenceLine y={minValue} stroke="#90CDF4" strokeDasharray="3 3" >
+                    <Label value="Min" position={"insideBottomLeft"} />
+                </ReferenceLine>
+            }
+            {isSimple ? null :
+                <ReferenceLine y={averageValue} stroke="#90CDF4" strokeDasharray="3 3" >
+                    <Label value="Average" position={"insideBottomLeft"} />
+                </ReferenceLine>
+            }
         </LineChart>
         //</ResponsiveContainer>
     );

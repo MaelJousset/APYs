@@ -2,27 +2,20 @@ import React, { useState } from 'react'
 import {
     Flex,
     Text,
-    Heading,
     Box,
-    Table,
-    Thead,
-    Tr,
-    Th,
-    Tbody,
-    Td,
 } from '@chakra-ui/react'
 
-//import TVLChart from '../TVL/TVLChart';
 import CustomChart from './Chart';
 import TVLValue from '../TVL/TVLValue';
 
-interface TvlChartProps {
+interface DashboardChartProps {
+    pool: string;
     values: {
         x: Date;
         y: number;
     }[];
 }
-const TvlChart: React.FC<TvlChartProps> = ({ values }) => {
+const DashboardChart: React.FC<DashboardChartProps> = ({ pool, values }) => {
 
     var months = ["Jan.", "Feb.", "Mar.", "Apr.", "May", "June",
         "July", "Aug.", "Sept.", "Oct.", "Nov.", "Dec."];
@@ -35,10 +28,14 @@ const TvlChart: React.FC<TvlChartProps> = ({ values }) => {
 
     return (
         <Box
-            bgColor={"blue.50"}
-            borderRadius={"15px"}
-            boxShadow='base'
-            w="60%"
+        // borderRadius={15}
+        // paddingLeft={5}
+        // paddingRight={5}
+        // paddingBottom={5}
+        // paddingTop={3}
+        // w={"30%"}
+        // bgColor={"blue.100"}
+        // shadow={"base"}
         >
             <Flex
                 flexDir={"column"}
@@ -59,14 +56,14 @@ const TvlChart: React.FC<TvlChartProps> = ({ values }) => {
                         fontSize={"24px"}
                         color={"blue.800"}
                     >
-                        TVL
+                        {pool}
                     </Text>
                     <TVLValue values={values} />
                 </Flex>
-                <CustomChart isSimple={false} width={500} height={300} chartData={convertedData} />
+                <CustomChart isSimple={true} width={350} height={200} chartData={convertedData} />
             </Flex>
         </Box>
     )
 }
 
-export default TvlChart;
+export default DashboardChart;
