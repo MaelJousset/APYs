@@ -21,9 +21,7 @@ import { connect } from 'http2';
 function WalletButton() {
     const [connectText, setConnectText] = useState('Connect');
     const [connectIcon, setConnectIcon] = useState(<FaWallet />);
-
-    const { provider } = useProvider();
-    const { chain } = useNetwork();
+    const [connected, setConnected] = useState(false);
 
     const walletService = useMemo(() => new WalletService(), []);
 
@@ -44,20 +42,16 @@ function WalletButton() {
     const handleConnect = async () => {
 
         if (walletService.isConnected()) {
-            if (isLoading) setConnectText('Loading...');
-            if (isError) setConnectText('Error');
-            if (data) setConnectText(data);
-
+            setConnected(true);
+            setConnectText(walletService.getShortWalletAddress());
             setConnectIcon(<GoSignOut />);
-            // console.log('callback connected');
         }
     };
 
     const handleDisconnect = () => {
+        setConnected(false);
         setConnectText('Connect');
         setConnectIcon(<FaWallet />);
-
-        console.log('callback disconnected');
     };
 
 
@@ -83,7 +77,10 @@ function WalletButton() {
                 variant='solid'
                 size={{ base: 'sm', md: 'md' }}
             >
-                {connectText}
+                {!connected ?
+                    connectText :
+                    isLoading ? "Loading..." :
+                        data ? data : connectText}
             </Button>
         </Stack>
     );
