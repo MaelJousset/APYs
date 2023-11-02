@@ -12,20 +12,17 @@ import { GoSignOut } from "react-icons/go";
 
 
 import { useProvider, useNetwork, useAccount } from "@starknet-react/core";
+
 import { StarknetIdNavigator } from "starknetid.js";
-import { Provider, constants } from "starknet";
-
-const provider = new Provider();
-const starknetIdNavigator = new StarknetIdNavigator(
-    provider,
-    constants.StarknetChainId.SN_MAIN
-);
-
+import { constants } from "starknet";
 
 function WalletButton() {
     const [connectText, setConnectText] = useState('Connect');
     const [connectIcon, setConnectIcon] = useState(<FaWallet />);
-    //const walletService = new WalletService();
+
+    const { provider } = useProvider();
+    const { chain } = useNetwork();
+
     const walletService = useMemo(() => new WalletService(), []);
 
     const handleClick = () => {
@@ -36,40 +33,35 @@ function WalletButton() {
         }
     };
 
+    const handleConnect = async () => {
+
+        if (walletService.isConnected()) {
+            const address = walletService.getWalletAddress();
+            if (address) {
+
+                const starknetIdNavigator = new StarknetIdNavigator(
+                    provider,
+                    chain?.id as constants.StarknetChainId
+                );
+                const starkname = await starknetIdNavigator.getStarkName(address ?? "");
+                setConnectText(starkname);
+            }
+
+            setConnectIcon(<GoSignOut />);
+            console.log('callback connected');
+        }
+    };
+
+    const handleDisconnect = () => {
+        setConnectText('Connect');
+        setConnectIcon(<FaWallet />);
+
+        console.log('callback disconnected');
+    };
+
 
     // Register callbacks when the component is mounted
     useEffect(() => {
-        const handleConnect = async () => {
-            if (walletService.isConnected()) {
-                // setConnectText(walletService.getShortWalletAddress());
-                const address = walletService.getWalletAddress();
-                if (address) {
-                    const { provider } = useProvider();
-                    const { chain } = useNetwork();
-                    const { address } = useAccount();
-                    const starknetIdNavigator = new StarknetIdNavigator(
-                        provider,
-                        chain?.id as constants.StarknetChainId
-                    );
-                    const starkname = await starknetIdNavigator.getStarkName(address ?? "");
-                    setConnectText(starkname);
-                    // if (result.isLoading) setConnectText('Loading...');
-                    // if (result.isError) setConnectText('Error fetching name...');
-                    // if (result.data) setConnectText(result.data);
-                }
-
-                setConnectIcon(<GoSignOut />);
-                console.log('callback connected');
-            }
-        };
-
-        const handleDisconnect = () => {
-            setConnectText('Connect');
-            setConnectIcon(<FaWallet />);
-
-            console.log('callback disconnected');
-        };
-
         // Register the callbacks for connection changes
         walletService.registerOnConnectCallback(handleConnect);
         walletService.registerOnDisconnectCallback(handleDisconnect);
