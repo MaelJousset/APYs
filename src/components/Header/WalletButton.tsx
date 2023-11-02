@@ -15,6 +15,8 @@ import { useProvider, useNetwork, useAccount } from "@starknet-react/core";
 
 import { StarknetIdNavigator } from "starknetid.js";
 import { constants } from "starknet";
+import { useStarkName } from "@starknet-react/core";
+import { connect } from 'http2';
 
 function WalletButton() {
     const [connectText, setConnectText] = useState('Connect');
@@ -24,6 +26,12 @@ function WalletButton() {
     const { chain } = useNetwork();
 
     const walletService = useMemo(() => new WalletService(), []);
+
+    const temp_addr = walletService.getWalletAddress();
+    const address = temp_addr ? temp_addr : "";
+    const { data, isLoading, isError } = useStarkName({ address });
+
+
 
     const handleClick = () => {
         if (walletService.isConnected()) {
@@ -36,19 +44,12 @@ function WalletButton() {
     const handleConnect = async () => {
 
         if (walletService.isConnected()) {
-            const address = walletService.getWalletAddress();
-            if (address) {
-
-                const starknetIdNavigator = new StarknetIdNavigator(
-                    provider,
-                    chain?.id as constants.StarknetChainId
-                );
-                const starkname = await starknetIdNavigator.getStarkName(address ?? "");
-                setConnectText(starkname);
-            }
+            if (isLoading) setConnectText('Loading...');
+            if (isError) setConnectText('Error');
+            if (data) setConnectText(data);
 
             setConnectIcon(<GoSignOut />);
-            console.log('callback connected');
+            // console.log('callback connected');
         }
     };
 
