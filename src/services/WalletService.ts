@@ -1,7 +1,5 @@
 import { connect, disconnect } from 'starknetkit'
 import { Provider, constants } from "starknet";
-// import { StarknetIdNavigator } from "starknetid.js";
-// import { useStarkName } from '@starknet-react/core';
 
 
 class WalletService {
