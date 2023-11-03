@@ -56,7 +56,8 @@ const TvlChart: React.FC<TvlChartProps> = ({ values }) => {
                 >
                     <Text
                         fontFamily={"Plus Jakarta Sans, sans-serif"}
-                        fontSize={"24px"}
+                        fontSize={"22px"}
+                        fontWeight={"bold"}
                         color={"blue.800"}
                     >
                         TVL
