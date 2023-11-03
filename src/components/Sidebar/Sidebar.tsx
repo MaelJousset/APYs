@@ -126,11 +126,8 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             w="full"
             alignItems="center"
             bgColor={"blue.50"}
-            //borderBottomWidth="1px"
-            //borderBottomColor={useColorModeValue('blue.200', 'blue.700')}
             paddingRight={8}
             justifyContent="space-between"
-            //gap={6}
             {...rest}>
 
             <Title logo="/assets/APY_logo.png"
