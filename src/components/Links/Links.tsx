@@ -64,9 +64,10 @@ export default function Links() {
                         paddingLeft={10}
                     >
                         <Image
-                            src='assets/myswap.png'
+                            src='assets/myswap.webp'
                             h={7}
                             w={7}
+                            borderRadius={5}
                             fit="cover"
                         />
                         <LinkOverlay href='https://www.myswap.xyz/' isExternal color={"blue.500"}>

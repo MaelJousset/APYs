@@ -98,7 +98,7 @@ const SidebarContent = ({ onClose, setCurrentPage, ...rest }: SidebarProps) => {
             <NavItem icon={IoIosHome} title="Dashboard" active={activePage === 'Dashboard'}
                 onClick={() => handleButtonClick('Dashboard')}
             />
-            <NavImageItem image={"/assets/myswap.png"} title="MySwap" active={activePage === 'MySwap'}
+            <NavImageItem image={"/assets/myswap.webp"} title="MySwap" active={activePage === 'MySwap'}
                 onClick={() => handleButtonClick('MySwap')}
             />
             <NavImageItem image={"/assets/jediswap.jpg"} title="JediSwap" active={activePage === 'JediSwap'}
