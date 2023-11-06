@@ -1,9 +1,5 @@
-import React, { useState } from 'react'
 import {
     Flex,
-    Text,
-    Heading,
-    Box
 } from '@chakra-ui/react'
 
 import Links from '../components/Links/Links'
