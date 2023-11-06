@@ -14,6 +14,8 @@ import DashboardPage from "./pages/DashboardPage";
 // import MyWalletPage from "./pages/MyWalletPage";
 import PageHeader from "./components/Header/PageHeader";
 
+import PageLoader from "./components/PageLoader"
+
 
 const MySwapPage = lazy(() => import('./pages/MySwapPage'))
 const JediSwapPage = lazy(() => import('./pages/JediSwapPage'))
@@ -47,7 +49,7 @@ class ErrorBoundary extends Component<ErrorBoundaryProps, ErrorBoundaryState> {
   }
 }
 
-const renderLoader = () => <Spinner />;
+const renderLoader = () => <PageLoader />;
 
 function App() {
   const [activePage, setActivePage] = useState('Dashboard'); // Initialize activePage with a default value
