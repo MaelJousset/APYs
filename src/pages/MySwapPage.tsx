@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import {
     Flex,
     Text,
@@ -14,9 +14,34 @@ import TopPools from '../components/PoolLists/TopPools'
 import TvlChart from '../components/Charts/TvlChart'
 
 import MySwapService from '../services/MySwapService'
+import MySwapPools, { MySwapPool } from '../services/MySwap/MySwapPools'
 
 
 export default function MySwapPage() {
+
+
+
+    useEffect(() => {
+        const getMySwapPools = async () => {
+            const myswap_pools = new MySwapPools();
+            await myswap_pools.setContract();
+            // await myswap_pools.setVersion();
+            await myswap_pools.setNbPools();
+            await myswap_pools.setPools();
+            const pools = myswap_pools.getPools();
+
+            console.log("pools: ", pools);
+
+            // Iterate through the pools and log each pool
+            for (const pool of pools) {
+                console.log(pool);
+            }
+        }
+
+        getMySwapPools().catch(console.error);
+
+    }, [])
+
     return (
         <Flex
             pt={{ base: 6, md: 0 }}
