@@ -82,7 +82,7 @@ const SidebarContent = ({ onClose, setCurrentPage, ...rest }: SidebarProps) => {
             h="full"
             {...rest}>
             <Flex h="20" alignItems="center" mx="8" justifyContent="space-between">
-                <Title logo="/assets/APY_logo.png"
+                <Title logo="/assets/logo.webp"
                     title="STARK VIEWER" />
                 <CloseButton
                     display={{ base: 'flex', md: 'none' }}
@@ -130,7 +130,7 @@ const MobileNav = ({ onOpen, ...rest }: MobileProps) => {
             justifyContent="space-between"
             {...rest}>
 
-            <Title logo="/assets/APY_logo.png"
+            <Title logo="/assets/logo.webp"
                 title="STARK VIEWER" />
             <IconButton
                 variant="unstyled"
