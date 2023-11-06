@@ -28,6 +28,7 @@ const Title: React.FC<TitleProps> = ({ logo, title }) => {
                 borderRadius={"lg"}
                 width={{ base: "8", md: "10" }}
                 height={{ base: "8", md: "10" }}
+                alt={"StarkViewer Logo"}
             />
             <Heading
                 size={{ base: "sm", md: "md" }}
