@@ -27,6 +27,7 @@ const Title: React.FC<TitleProps> = ({ logo, title }) => {
                 src={logo}
                 borderRadius={"lg"}
                 width={{ base: "8", md: "10" }}
+                height={{ base: "8", md: "10" }}
             />
             <Heading
                 size={{ base: "sm", md: "md" }}
