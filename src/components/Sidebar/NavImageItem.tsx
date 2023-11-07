@@ -54,6 +54,7 @@ const NavImageItem: React.FC<NavImageItemProps> = ({ image, title, active, onCli
                                     width={8}
                                     height={8}
                                     objectFit="cover"
+                                    loading="lazy"
                                 />
                             </Box>
                             <Text

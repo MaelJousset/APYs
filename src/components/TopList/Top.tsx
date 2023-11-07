@@ -69,6 +69,7 @@ const Top: React.FC<TopProps> = ({ title, pool, origin, apy }) => {
                         borderRadius={"22px"}
                         w={"44px"}
                         h={"44px"}
+                        loading="lazy"
                     >
                     </Image>
                 </Flex>

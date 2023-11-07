@@ -1,6 +1,5 @@
 import React from "react";
 import {
-    Center,
     Flex,
     Heading,
     Image,
@@ -29,6 +28,7 @@ const Title: React.FC<TitleProps> = ({ logo, title }) => {
                 width={{ base: "8", md: "10" }}
                 height={{ base: "8", md: "10" }}
                 alt={"StarkViewer Logo"}
+                loading="lazy"
             />
             <Heading
                 size={{ base: "sm", md: "md" }}

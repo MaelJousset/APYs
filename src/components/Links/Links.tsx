@@ -69,6 +69,7 @@ export default function Links() {
                             w={7}
                             borderRadius={5}
                             fit="cover"
+                            loading="lazy"
                         />
                         <LinkOverlay href='https://www.myswap.xyz/' isExternal color={"blue.500"}>
                             Website
@@ -96,6 +97,7 @@ export default function Links() {
                             h={5}
                             w={7}
                             fit="contain"
+                            loading="lazy"
                         />
                         <LinkOverlay href='https://twitter.com/mySwapxyz' isExternal color={"blue.500"}>
                             Twitter
@@ -124,6 +126,7 @@ export default function Links() {
                             h={5}
                             w={7}
                             fit="contain"
+                            loading="lazy"
                         />
                         <LinkOverlay href='https://discord.com/invite/gbxgWHzqE4' isExternal color={"blue.500"}>
                             Discord
@@ -151,6 +154,7 @@ export default function Links() {
                             h={7}
                             w={7}
                             fit="cover"
+                            loading="lazy"
                         />
                         <LinkOverlay href='https://t.me/mySwapxyz' isExternal color={"blue.500"}>
                             Telegram
